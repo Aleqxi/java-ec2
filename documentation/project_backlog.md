@@ -18,6 +18,6 @@ Updated: 13.3.2021
 
 * Create a definition document 13.3.2021
 * Create project structure 14.3.2021
-* Read in the word list resource, first to array containing arrays 14.3.2021
+* Read in the word list resource, first to array 14.3.2021
 * Create a simple text UI 14.3.2021
 * Check if the word resource contains a word provided by user 14.3.2021
