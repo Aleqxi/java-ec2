@@ -5,7 +5,7 @@ Updated: 13.3.2021
 ## Steps to be done
 
 * Create test files and start testing
-* Create 
+* Add javadoc and instructions for that
 * Create first version of Levenshtein algorithm
 * Provide first simple solutions (for list of same length, for example) with it
 * Calculate distance with wider range of word lengths if results are not good enough
