@@ -36,17 +36,25 @@ The agorithm calculates optimal string alignment distance between two words base
 The basic optimal string alignment distance (without weighting) is an amount of these operations needed to transform a parameter string to another parameter string.
 
 The optimal string alignment distance is a good way to see how far the words are from each other.
-For short strings, words, this should be accurate enough even when it 
 
 Other possible algorithms could be basic Levenshtein distance or full Damerau-Levenshtein distance (allows unlimited amount of transpositions).
 The first is not as accurate as the optimal string alignment distance, as it does not notice transpositions at all.
-On the other hand, it seems to be the case that the full Damerau-Levenshtein does not perform much better than the optimal string alignment, but it increases the complexity.
-This latter case must be looked further. Anyway, all the three algorithms mentioned have the same basis (Levenshtein), and the project can be based on that.
-Other variations can be developed on that.
+On the other hand, it seems to be the case that the full Damerau-Levenshtein does not perform much better than the optimal string alignment, but it increases the complexity. This is due to the fact that with short strings, words, the edit distances tend to be short (according to Damerau-Levenshtein Wikipedia article).
+
+Anyway, all the three algorithms mentioned have the same basis (Levenshtein), and the project can be started with and based on that.
 
 The actual industrial-size spell checkers of course use way more complex modelling and algorithms behind them.
 They are based on massive amount of natural language analyzed and modelled. 
 This kind of program is many times harder to implement than basic one based on one algorithm, and this is not the purpose of this program.
+
+### Weights
+
+When the first minimum viable product with optimal string alignment distance is created, the weights for different situations can be added.
+For example, the spell checker could weight more the cases where the swapped characters are located near each other on QWERTY keyboard.
+
+The correct term here seems to be __alphabet-weight edit distance__ (as it is separated from _operation-weight edit distance_). This term is at least used in Gusfield's book. The implementation is not clear for me at the moment, but it does not seem to be impossible to implement.
+
+Of course, these weights and their performance must be tested and compared with the basic case without weights.
 
 ### Time and memory complexity
 
@@ -63,18 +71,13 @@ Therefore, the memory complexity will also be _O(nm)_.
 These complexities are acceptable, as the maximum length of the input string is 15 characters.
 But the memory complexity can be decreased by noting that calculating substring distances does only need a couple of rows and columns of the table at the time, not all of them.
 
-### Weights
-
-When the first minimum viable product with optimal string alignment distance is created, the weights for different situations can be added.
-For example, the spell checker could weight more the cases where the swapped characters are located near each other on QWERTY keyboard.
-
-Of course, these weights and their performance must be tested and compared with the basic case without weights.
-
 ### Word list organization
 
 Also the word list needs to be arranged effectively for searching. 
 In the first phase, the list is saved as just an array, and the optimal string alignment distance is calculated for every word (as 15 000 words is not that much).
 This can be developed perhaps with some kind of tree structure or array of arrays. This can be specified later on. 
+
+Also it needs to be checked if the word list contains input or not. In the beginning, this is implemented with contains method for array, but this will be replaced with the data structure coded manually.
 
 ## Use of the program
 
