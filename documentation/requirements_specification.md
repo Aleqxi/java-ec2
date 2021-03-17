@@ -1,6 +1,6 @@
 # Requirements specification for Spell Checker
 
-Updated: 13.3.2021
+Updated: 17.3.2021
 
 Language of the project is English. 
 
