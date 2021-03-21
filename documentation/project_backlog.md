@@ -1,12 +1,10 @@
 # Backlog for Spell Checker
 
-Updated: 17.3.2021
+Updated: 21.3.2021
 
 ## Steps to be done
 
 * Create test files and start testing
-* Add javadoc and instructions for that
-* Create first version of Levenshtein algorithm
 * Provide first simple solutions (for list of same length, for example) with it
 * Calculate distance with wider range of word lengths if results are not good enough
 * Level-up the algorithm to be optimal string alignment distance
@@ -26,3 +24,5 @@ Updated: 17.3.2021
 * Read in the word list resource, first to array 14.3.2021
 * Create a simple text UI 14.3.2021
 * Check if the word resource contains a word provided by user 14.3.2021
+* Add javadoc for existing classes and methods, finished 21.3.2021
+* Create first version of Levenshtein algorithm and add it as an option to the user interface 21.3.2021
