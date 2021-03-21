@@ -10,6 +10,7 @@ Updated: 21.3.2021
 * Level-up the algorithm to be optimal string alignment distance
 * Rewrite the contains method with own code
 * Enhance the correctiveness by weighting letters next to each other on keyboard more (alphabet-weight edit distance)
+* Weight uppercase and lowercase switches (perhaps in the beginning of the word?)
 * Search for other weights or other ways to increase the efficiency and precision of the algorithm
 * Perhaps try to decrease the memory complexity of optimal string alignment distance (it does not need to keep all the indexes in memory all the time)
 * Decide and create more effective data structure for dictionary
