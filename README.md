@@ -12,4 +12,5 @@ The word list currently found in [project resources](https://github.com/sallasal
 
 - [Project backlog](https://github.com/sallasal/SpellChecker/blob/main/documentation/project_backlog.md)
 - [Requirements specification](https://github.com/sallasal/SpellChecker/blob/main/documentation/requirements_specification.md)
+- [User instructions](https://github.com/sallasal/SpellChecker/blob/main/documentation/user_instructions.md)
 - [Week report 1](https://github.com/sallasal/SpellChecker/blob/main/documentation/week_report_1.md)
