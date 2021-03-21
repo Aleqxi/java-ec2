@@ -31,7 +31,7 @@ public class TextUI {
 
     private void askCommand() {
         System.out.println("Commands");
-        System.out.println("l : get levenshtein edit distance of two words");
+        System.out.println("l : get Levenshtein edit distance of two words");
         System.out.println("w : check if the word is in resource dicionary");
         System.out.println("q : quit");
         System.out.println("");
