@@ -1,18 +1,18 @@
-/**
- *
- * @author sallasal
- */
-
 package userInterface;
 
 import java.util.*;
 import domain.*;
 
+/**
+ * Text user interface is implemented in this class
+ *
+ * @author sallasal
+ */
 public class TextUI {
 
     private Scanner reader;
     private CheckerService checkerService;
-    
+
     /**
      * Initializes all needed resources for user interface
      */
@@ -26,22 +26,52 @@ public class TextUI {
      */
     public void runUI() {
         welcome();
-        readInput();
+        askCommand();
+    }
+
+    private void askCommand() {
+        System.out.println("Commands");
+        System.out.println("l : get levenshtein edit distance of two words");
+        System.out.println("w : check if the word is in resource dicionary");
+        System.out.println("q : quit");
+        System.out.println("");
+
+        while (true) {
+            System.out.println("");
+            System.out.println("Choose command:");
+            String command = reader.nextLine();
+
+            if (command.equals("l")) {
+                compareWords();
+            } else if (command.equals("w")) {
+                readInput();
+            } else if (command.equals("q")) {
+                break;
+            } else {
+                System.out.println("Unspecified command, try again.");
+            }
+        }
+
+        quit();
+
+    }
+
+    private void compareWords() {
+        System.out.println("Insert first word:");
+        String word1 = reader.nextLine();
+        System.out.println("Insert second word:");
+        String word2 = reader.nextLine();
+
+        System.out.println("");
+        System.out.println("Levenshtein edit distance between word is "
+                + checkerService.getLevenshteinDistance(word1, word2));
+        System.out.println("");
     }
 
     private void readInput() {
+        System.out.println("Insert the word that is checked from dictionary:");
         String input = reader.nextLine();
-
-        while (!input.equals("quit")) {
-            checkInput(input);
-            
-            System.out.println("");
-            System.out.println("**********");
-            System.out.println("To stop, insert 'quit'. To continue, insert new word.");
-            input = reader.nextLine();
-        }
-        
-        quit();
+        checkInput(input);
     }
 
     private void checkInput(String input) {
@@ -64,7 +94,6 @@ public class TextUI {
         System.out.println("**********");
         System.out.println("**********");
         System.out.println("");
-        System.out.println("To start, insert a word that needs to be checked:");
     }
 
     private void quit() {

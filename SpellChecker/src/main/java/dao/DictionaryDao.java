@@ -1,9 +1,10 @@
-/**
- *
- * @author sallasal
- */
 
 package dao;
+
+/**
+ * The dictionary file is accessed via this interface
+ * @author sallasal
+ */
 
 public interface DictionaryDao {
     

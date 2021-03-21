@@ -7,6 +7,11 @@ package dao;
 
 import java.io.*;
 
+/**
+ * This class contains the details of the resource file access
+ * @author sallasal
+ */
+
 public class FileDictionaryDao implements DictionaryDao {
     
     private String[] dictionary;
