@@ -1,6 +1,7 @@
 package domain;
 
 import dao.*;
+import java.util.ArrayDeque;
 
 /**
  * All the program functions are called through this class.
@@ -32,6 +33,36 @@ public class CheckerService {
     }
 
     /**
+     * Checks the spelling and prints 10 best suggestions
+     *
+     * @param word the word that needs to be checked
+     */
+    public void checkSpelling(String word) {
+
+        if (!checkWordFromDictionary(word)) {
+            String[] suggestions = getSuggestions(word);
+            boolean found = false;
+            System.out.println("Suggestions (best first): ");
+            System.out.println("");
+
+            for (int i = 0; i < 10; i++) {
+                if (!suggestions[i].equals("-")) {
+                    System.out.println(suggestions[i]);
+                    found = true;
+                }
+
+            }
+
+            if (!found) {
+                System.out.println("No suggestions were found.");
+            }
+
+        } else {
+            System.out.println("No worries, the word is proper English word.");
+        }
+    }
+
+    /**
      * Checks if the input word is found from dictionary
      *
      * @param input the user input
@@ -57,7 +88,7 @@ public class CheckerService {
     public int getLevenshteinDistance(String word1, String word2) {
         return this.levenshtein.levenshteinDistance(word1, word2);
     }
-    
+
     /**
      * Calculates optimal string alignment distance
      *
@@ -67,6 +98,58 @@ public class CheckerService {
      */
     public int getOptimalStringAlignmentDistance(String word1, String word2) {
         return this.optimalStringAlignment.optimalStringAlignment(word1, word2);
+    }
+
+    /**
+     * Creates 10 best suggestions based on optimal string alignment distance
+     *
+     * @param wordFor the false word the distance is compared to
+     * @return 10 best suggestions as String array
+     */
+    public String[] getSuggestions(String wordFor) {
+        ArrayDeque<String> distance1 = new ArrayDeque<>();
+        ArrayDeque<String> distance2 = new ArrayDeque<>();
+        ArrayDeque<String> distance3 = new ArrayDeque<>();
+
+        String[] suggestions = new String[10];
+        for (int i = 0; i < 10; i++) {
+            suggestions[i] = "-";
+        }
+
+        for (String word : dictionary) {
+            int distance = this.getOptimalStringAlignmentDistance(wordFor, word);
+
+            switch (distance) {
+                case 1:
+                    distance1.addLast(word);
+                    break;
+                case 2:
+                    distance2.addLast(word);
+                    break;
+                case 3:
+                    distance3.addLast(word);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        int i = 0;
+
+        while (i < 10 && distance1.size() > 0) {
+            suggestions[i] = distance1.remove();
+            i++;
+        }
+
+        while (i < 10 && distance2.size() > 0) {
+            suggestions[i] = distance2.remove();
+        }
+
+        while (i < 10 && distance3.size() > 0) {
+            suggestions[i] = distance3.remove();
+        }
+
+        return suggestions;
     }
 
 }

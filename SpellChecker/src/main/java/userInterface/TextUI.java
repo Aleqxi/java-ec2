@@ -31,6 +31,7 @@ public class TextUI {
 
     private void askCommand() {
         System.out.println("Commands");
+        System.out.println("c : check spelling!");
         System.out.println("l : get Levenshtein edit distance of two words");
         System.out.println("o : get optimal string alignment distance of two words");
         System.out.println("w : check if the word is in resource dicionary");
@@ -42,7 +43,9 @@ public class TextUI {
             System.out.println("Choose command:");
             String command = reader.nextLine();
 
-            if (command.equals("l")) {
+            if (command.equals("c")) {
+                checkSpelling();
+            } else if (command.equals("l")) {
                 calculateDistance("Levenshtein");
             } else if (command.equals("o")) {
                 calculateDistance("optimalStringAlignment");
@@ -79,17 +82,8 @@ public class TextUI {
         }
     }
 
-    private void readInput() {
-        System.out.println("Insert the word that is checked from dictionary:");
-        String input = reader.nextLine();
-        checkInput(input);
-    }
-
     private void checkInput(String input) {
-        if (input.length() > 15 || input.contains(" ")) {
-            System.out.println("The input is longer than 15 characters "
-                    + "or contains whitespace. These are not allowed.");
-        } else {
+        if (trimInput(input)) {
             if (checkerService.checkWordFromDictionary(input)) {
                 System.out.println("The word is found from dictionary.");
             } else {
@@ -98,13 +92,20 @@ public class TextUI {
         }
     }
 
-    private void welcome() {
-        System.out.println("**********");
-        System.out.println("**********");
-        System.out.println("Welcome to Spell Checker!");
-        System.out.println("**********");
-        System.out.println("**********");
+    private void checkSpelling() {
+        System.out.println("Insert the word for checking:");
+        String input = reader.nextLine();
         System.out.println("");
+        
+        if (trimInput(input)) {
+            checkerService.checkSpelling(input);
+        }
+    }
+
+    private void readInput() {
+        System.out.println("Insert the word that is checked from dictionary:");
+        String input = reader.nextLine();
+        checkInput(input);
     }
 
     private void quit() {
@@ -115,6 +116,25 @@ public class TextUI {
         System.out.println("Thank you and welcome back!");
         System.out.println("**********");
         System.out.println("**********");
+    }
+
+    private boolean trimInput(String input) {
+        if (input.length() > 15 || input.contains(" ")) {
+            System.out.println("The input is longer than 15 characters "
+                    + "or contains whitespace. These are not allowed.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private void welcome() {
+        System.out.println("**********");
+        System.out.println("**********");
+        System.out.println("Welcome to Spell Checker!");
+        System.out.println("**********");
+        System.out.println("**********");
+        System.out.println("");
     }
 
 }
