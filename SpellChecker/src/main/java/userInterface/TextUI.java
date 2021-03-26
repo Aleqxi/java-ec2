@@ -32,6 +32,7 @@ public class TextUI {
     private void askCommand() {
         System.out.println("Commands");
         System.out.println("l : get Levenshtein edit distance of two words");
+        System.out.println("o : get optimal string alignment distance of two words");
         System.out.println("w : check if the word is in resource dicionary");
         System.out.println("q : quit");
         System.out.println("");
@@ -42,7 +43,9 @@ public class TextUI {
             String command = reader.nextLine();
 
             if (command.equals("l")) {
-                compareWords();
+                calculateDistance("Levenshtein");
+            } else if (command.equals("o")) {
+                calculateDistance("optimalStringAlignment");
             } else if (command.equals("w")) {
                 readInput();
             } else if (command.equals("q")) {
@@ -56,16 +59,24 @@ public class TextUI {
 
     }
 
-    private void compareWords() {
+    private void calculateDistance(String algorithm) {
         System.out.println("Insert first word:");
         String word1 = reader.nextLine();
         System.out.println("Insert second word:");
         String word2 = reader.nextLine();
+        int distance = -9999;
 
-        System.out.println("");
-        System.out.println("Levenshtein edit distance between word is "
-                + checkerService.getLevenshteinDistance(word1, word2));
-        System.out.println("");
+        if (algorithm.equals("Levenshtein")) {
+            distance = checkerService.getLevenshteinDistance(word1, word2);
+            System.out.println("");
+            System.out.println("Levenshtein edit distance between words is " + distance);
+            System.out.println("");
+        } else if (algorithm.equals("optimalStringAlignment")) {
+            distance = checkerService.getOptimalStringAlignmentDistance(word1, word2);
+            System.out.println("");
+            System.out.println("Optimal string alignment distance between words is " + distance);
+            System.out.println("");
+        }
     }
 
     private void readInput() {

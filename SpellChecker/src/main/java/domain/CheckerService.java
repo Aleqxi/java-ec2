@@ -12,6 +12,7 @@ public class CheckerService {
     private DictionaryDao initialize;
     private String[] dictionary;
     private Levenshtein levenshtein;
+    private OptimalStringAlignment optimalStringAlignment;
 
     /**
      * Creates CheckerService instance and initializes the dictionary based on
@@ -21,6 +22,7 @@ public class CheckerService {
         initialize = new FileDictionaryDao();
         this.dictionary = null;
         this.levenshtein = new Levenshtein();
+        this.optimalStringAlignment = new OptimalStringAlignment();
 
         try {
             this.dictionary = initialize.initializeDictionary();
@@ -54,6 +56,17 @@ public class CheckerService {
      */
     public int getLevenshteinDistance(String word1, String word2) {
         return this.levenshtein.levenshteinDistance(word1, word2);
+    }
+    
+    /**
+     * Calculates optimal string alignment distance
+     *
+     * @param word1 First word for OSA distance
+     * @param word2 Second word for OSA distance
+     * @return optimal string alignment distance as integer
+     */
+    public int getOptimalStringAlignmentDistance(String word1, String word2) {
+        return this.optimalStringAlignment.optimalStringAlignment(word1, word2);
     }
 
 }
