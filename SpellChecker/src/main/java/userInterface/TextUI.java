@@ -29,6 +29,9 @@ public class TextUI {
         askCommand();
     }
 
+    /**
+     * Asks the command for user, used for choosing the next function
+     */
     private void askCommand() {
         System.out.println("Commands");
         System.out.println("c : check spelling!");
@@ -50,7 +53,7 @@ public class TextUI {
             } else if (command.equals("o")) {
                 calculateDistance("optimalStringAlignment");
             } else if (command.equals("w")) {
-                readInput();
+                checkInput();
             } else if (command.equals("q")) {
                 break;
             } else {
@@ -62,6 +65,13 @@ public class TextUI {
 
     }
 
+    /**
+     * Test method that calculates and prints the distance between two inserted
+     * words
+     *
+     * @param algorithm The algorithm that is used for calculation, Levenshtein
+     * or OSA
+     */
     private void calculateDistance(String algorithm) {
         System.out.println("Insert first word:");
         String word1 = reader.nextLine();
@@ -82,7 +92,14 @@ public class TextUI {
         }
     }
 
-    private void checkInput(String input) {
+    /**
+     * Checks if the input string is found from dictionary
+     *
+     */
+    private void checkInput() {
+        System.out.println("Insert the word that is checked from dictionary:");
+        String input = reader.nextLine();
+
         if (trimInput(input)) {
             if (checkerService.checkWordFromDictionary(input)) {
                 System.out.println("The word is found from dictionary.");
@@ -92,22 +109,23 @@ public class TextUI {
         }
     }
 
+    /**
+     * Checks the spelling for inserted word and calls the checker service to
+     * print best options
+     */
     private void checkSpelling() {
         System.out.println("Insert the word for checking:");
         String input = reader.nextLine();
         System.out.println("");
-        
+
         if (trimInput(input)) {
             checkerService.checkSpelling(input);
         }
     }
 
-    private void readInput() {
-        System.out.println("Insert the word that is checked from dictionary:");
-        String input = reader.nextLine();
-        checkInput(input);
-    }
-
+    /**
+     * Exits from UI command loop and halts the execution
+     */
     private void quit() {
         System.out.println("");
         System.out.println("**********");
@@ -118,6 +136,9 @@ public class TextUI {
         System.out.println("**********");
     }
 
+    /**
+     * Checks that input meets requirements
+     */
     private boolean trimInput(String input) {
         if (input.length() > 15 || input.contains(" ")) {
             System.out.println("The input is longer than 15 characters "
@@ -128,6 +149,9 @@ public class TextUI {
         return true;
     }
 
+    /**
+     * First lines of user interface
+     */
     private void welcome() {
         System.out.println("**********");
         System.out.println("**********");

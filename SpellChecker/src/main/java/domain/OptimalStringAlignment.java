@@ -7,6 +7,12 @@ package domain;
  */
 public class OptimalStringAlignment {
 
+    /**
+     * Calculate optimal string alignment distance between two words
+     * @param word1 the first word used for OSA calculation
+     * @param word2 the second word used for OSA calculation
+     * @return optimal string alignment distance as int
+     */
     public int optimalStringAlignment(String word1, String word2) {
         int[][] substringTable = new int[word2.length() + 1][word1.length() + 1];
 
