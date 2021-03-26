@@ -15,8 +15,11 @@ on the project root folder _SpellChecker_.
 ## Usage
 
 Text user interface is quite self-explanatory. At the moment, user can select these options:
-* w : this command checks if the word inserted is in the resource dictionary
+
+* c : check spelling! [This is the main function of the program.]
 * l : this command calculates basic Levenshtein edit distance between two words inserted by user.
+* o : this command calculates optimal string alignment distance between two words inserted by user.
+* w : this command checks if the word inserted is in the resource dictionary.
 * q : stops the execution.
 
 The inputs should be single words without white spaces. __At the moment, inputs are not trimmed, so failures can happen if something other is inserted.__
