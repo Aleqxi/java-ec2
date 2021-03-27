@@ -110,8 +110,7 @@ public class TextUI {
     }
 
     /**
-     * Checks the spelling for inserted word and calls the checker service to
-     * print best options
+     * UI method for asking input and checking it before actual spell check
      */
     private void checkSpelling() {
         System.out.println("Insert the word for checking:");
@@ -119,7 +118,37 @@ public class TextUI {
         System.out.println("");
 
         if (trimInput(input)) {
-            checkerService.checkSpelling(input);
+            checkSpellingFor(input);
+        }
+    }
+
+    /**
+     * Checks the spelling and prints 10 best suggestions
+     *
+     * @param word the word that needs to be checked
+     */
+    public void checkSpellingFor(String word) {
+
+        if (!checkerService.checkWordFromDictionary(word)) {
+            String[] suggestions = checkerService.getSuggestions(word);
+            boolean found = false;
+            System.out.println("Suggestions (best first): ");
+            System.out.println("");
+
+            for (int i = 0; i < 10; i++) {
+                if (!suggestions[i].equals("-")) {
+                    System.out.println(suggestions[i]);
+                    found = true;
+                }
+
+            }
+
+            if (!found) {
+                System.out.println("No suggestions were found.");
+            }
+
+        } else {
+            System.out.println("No worries, the word is proper English word.");
         }
     }
 

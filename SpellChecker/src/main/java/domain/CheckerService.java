@@ -33,36 +33,6 @@ public class CheckerService {
     }
 
     /**
-     * Checks the spelling and prints 10 best suggestions
-     *
-     * @param word the word that needs to be checked
-     */
-    public void checkSpelling(String word) {
-
-        if (!checkWordFromDictionary(word)) {
-            String[] suggestions = getSuggestions(word);
-            boolean found = false;
-            System.out.println("Suggestions (best first): ");
-            System.out.println("");
-
-            for (int i = 0; i < 10; i++) {
-                if (!suggestions[i].equals("-")) {
-                    System.out.println(suggestions[i]);
-                    found = true;
-                }
-
-            }
-
-            if (!found) {
-                System.out.println("No suggestions were found.");
-            }
-
-        } else {
-            System.out.println("No worries, the word is proper English word.");
-        }
-    }
-
-    /**
      * Checks if the input word is found from dictionary
      *
      * @param input the user input
