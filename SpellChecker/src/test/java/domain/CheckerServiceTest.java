@@ -33,16 +33,31 @@ public class CheckerServiceTest {
     public void wordIsNotFoundFromDictionary() {
         assertFalse(checkerService.checkWordFromDictionary("dictonay"));
     }
-
+    
     @Test
-    public void levenshteinDistanceCallWorksWithEqualLengthStrings() {
-        int distance = checkerService.getLevenshteinDistance("cat", "cat");
-        assertEquals(0, distance);
+    public void levenshteinDistanceCallWorks() {
+        int distance = checkerService.getLevenshteinDistance("unicorn", "uincon");
+        assertEquals(3, distance);
     }
     
     @Test
-    public void levenshteinDistanceCallWorksWithDifferentLengthStrings() {
-        int distance = checkerService.getLevenshteinDistance("ros", "horse");
-        assertEquals(3, distance);
+    public void osaDistanceCallWorks() {
+        int distance = checkerService.getOptimalStringAlignmentDistance("unicorn", "uincon");
+        assertEquals(2, distance);
+    }
+    
+    @Test
+    public void getSuggestionsOffersLessThan10Correctly() {
+        String[] suggestions = checkerService.getSuggestions("marvelous");
+        assertEquals("marvellous", suggestions[0]);
+        assertEquals("-", suggestions[2]);
+    }
+    
+    @Test
+    public void getSuggestionsOffersBest10Correctly() {
+        String[] suggestions = checkerService.getSuggestions("lat");
+        assertEquals("at", suggestions[0]);
+        assertEquals("eat", suggestions[3]);
+        assertEquals("lag", suggestions[9]);
     }
 }
