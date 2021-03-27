@@ -5,6 +5,7 @@ Updated: 26.3.2021
 ## Steps to be done
 
 * Add checkstyle
+* Add information to UI if there is more than 10 best (distance 1) options available
 * Refactor the code with getting algorithm test methods to own class in UI package
 * Rewrite the contains method with own code
 * Rewrite ArrayDeques with own code
