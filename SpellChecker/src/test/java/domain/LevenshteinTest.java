@@ -45,4 +45,10 @@ public class LevenshteinTest {
         int distance = this.levenshtein.levenshteinDistance("moose", "goose");
         assertEquals(1, distance);
     }
+    
+    @Test
+    public void levenshteinDoesNotRecognizeTransposition() {
+        int distance = this.levenshtein.levenshteinDistance("unicorn", "uincon");
+        assertEquals(3, distance);
+    }
 }
