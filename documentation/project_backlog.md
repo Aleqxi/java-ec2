@@ -4,13 +4,14 @@ Updated: 26.3.2021
 
 ## Steps to be done
 
+* Finish Spell checker trainer
 * Add checkstyle
 * Add information to UI if there is more than 10 best (distance 1) options available
 * Refactor the code with getting algorithm test methods to own class in UI package
 * Rewrite the contains method with own code
 * Rewrite ArrayDeques with own code
+* Create basic type weights based on trainer data
 * Enhance the correctiveness by weighting letters next to each other on keyboard more (alphabet-weight edit distance)
-* Weight uppercase and lowercase switches (perhaps in the beginning of the word?)
 * Get results with wider edit distances, if needed (add 4 and perhaps 5)
 * Extend the checking from one word to whole sentence and other longer texts (note to self: check commas and periods).
 * Search for other weights or other ways to increase the efficiency and precision of the algorithm
@@ -32,3 +33,4 @@ Updated: 26.3.2021
 * Level-up the algorithm to be optimal string alignment distance 26.3.2021
 * Provide first spell checking solutions, best first 26.3.2021
 * Get results with distance 1-3, starting from 1 and adding more if results are not good enough 26.3.2021
+* Create skeleton of Spell checker trainer (minimum viable product) 31.3.2021
