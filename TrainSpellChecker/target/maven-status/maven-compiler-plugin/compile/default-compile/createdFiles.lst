@@ -1,0 +1,5 @@
+trainerGUI/TrainerGUI.class
+trainerDomain/Main.class
+trainerGUI/InsertScene.class
+trainerDomain/Pair.class
+trainerDomain/TrainerService.class
