@@ -27,7 +27,8 @@ public class TrainerGUI extends Application {
         window.setTitle("Teach Spell Checker!");
         window.setWidth(800.00);
         window.setHeight(800.00);
-        setting.setPadding(new Insets(20,20,20,20));
+        setting.setPadding(new Insets(20, 20, 20, 20));
+
 
         InsertScene insertScene = new InsertScene();
         Scene insert = insertScene.getInsertScene(window, trainer);

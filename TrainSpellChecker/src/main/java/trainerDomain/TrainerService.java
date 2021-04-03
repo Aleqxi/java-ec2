@@ -15,6 +15,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -24,9 +25,11 @@ public class TrainerService {
 
     private String[] dictionary;
     private PrintStream resultWriter;
+    private Pattern pattern;
 
     public TrainerService() {
         this.dictionary = new String[15000];
+        this.pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
         
         try {
             this.resultWriter = new PrintStream(new FileOutputStream("results.csv", true));
@@ -59,11 +62,7 @@ public class TrainerService {
 
         try {
             File resultFile = new File("results.csv");
-            if (resultFile.createNewFile()) {
-                System.out.println("File created to the project root folder.");
-            } else {
-                System.out.println("File already exists.");
-            }
+            resultFile.createNewFile();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -80,7 +79,9 @@ public class TrainerService {
             word = word.toLowerCase().replace(".", "").replace(",", "")
                     .replace("!", "").replace("?", "").replace(":", "");
 
-            if (!word.equals("") && !checkWordFromDictionary(word)) {
+            if (!word.equals("") && !word.contains("'") && 
+                    !(pattern.matcher(word).matches()) 
+                    &&!checkWordFromDictionary(word)) {
                 falseWords.add(word);
             }
         }
@@ -102,7 +103,6 @@ public class TrainerService {
         try {
             resultWriter.print(result);
             resultWriter.print(System.lineSeparator());
-            System.out.println("Results are written to the file.");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }

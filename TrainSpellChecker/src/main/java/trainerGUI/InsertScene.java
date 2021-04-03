@@ -31,12 +31,13 @@ public class InsertScene {
     }
 
     public Scene getInsertScene(Stage window, TrainerService trainer) {
+        ScrollPane scrollable = new ScrollPane();
         BorderPane insertLayout = new BorderPane();
 
         VBox elements = new VBox();
         VBox answers = new VBox();
-        elements.setPadding(new Insets(10,10,10,10));
-        answers.setPadding(new Insets(10,10,10,10));
+        elements.setPadding(new Insets(10, 10, 10, 10));
+        answers.setPadding(new Insets(10, 10, 10, 10));
 
         elements.setSpacing(20);
 
@@ -92,6 +93,10 @@ public class InsertScene {
                     }
 
                 }
+                clearTextFields();
+                clearWords1();
+                inputText.setText("");
+                answers.getChildren().clear();
             });
 
             elements.getChildren().remove(answers);
@@ -99,8 +104,9 @@ public class InsertScene {
         });
 
         insertLayout.setCenter(elements);
+        scrollable.setContent(insertLayout);
 
-        return new Scene(insertLayout);
+        return new Scene(scrollable);
     }
 
     public void clearWords1() {
