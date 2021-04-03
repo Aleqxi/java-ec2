@@ -6,7 +6,7 @@
 package trainerGUI;
 
 import java.util.ArrayList;
-import javafx.scene.Node;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -35,22 +35,26 @@ public class InsertScene {
 
         VBox elements = new VBox();
         VBox answers = new VBox();
+        elements.setPadding(new Insets(10,10,10,10));
+        answers.setPadding(new Insets(10,10,10,10));
 
         elements.setSpacing(20);
 
-        TextArea inputText = new TextArea("Add the text here.");
+        TextArea inputText = new TextArea();
+        inputText.setWrapText(true);
 
         Button readButton = new Button("Read!");
 
-        elements.getChildren().add(new Label("Add the text for teaching:"));
+        elements.getChildren().add(new Label("Add the text for teaching. You can add a text even if you didn't teach previous results."));
         elements.getChildren().add(inputText);
         elements.getChildren().add(readButton);
 
         readButton.setOnAction((event) -> {
-            trainer.clearPairs();
             clearTextFields();
             clearWords1();
             answers.getChildren().clear();
+
+            answers.getChildren().add(new Label("To skip the word, leave default value."));
 
             ArrayList<String> falseWords = trainer.checkInput(inputText.getText());
 
@@ -60,7 +64,7 @@ public class InsertScene {
             for (int i = 0; i < falseWords.size(); i++) {
                 TextField textField = new TextField("-");
                 String word = falseWords.get(i);
-                
+
                 this.textFields[i] = textField;
                 this.words1[i] = word;
 
@@ -76,16 +80,18 @@ public class InsertScene {
 
             }
             Button teachButton = new Button("Teach!");
+            answers.getChildren().add(new Label("Program writes to result file when teaching."));
+            answers.getChildren().add(new Label("After that, you can insert a new text snippet."));
             answers.getChildren().add(teachButton);
-            
+
             teachButton.setOnAction((teachEvent) -> {
                 for (int i = 0; i < this.words1.length; i++) {
                     String word2 = this.textFields[i].getText().toLowerCase();
-                    trainer.addPair(this.words1[i], word2);
-                    // This can be removed when continued
-                    System.out.println(this.words1[i] + " -> " + word2);
+                    if (!word2.equals("-")) {
+                        trainer.writeResultToFile(this.words1[i] + "," + word2);
+                    }
+
                 }
-                // Add here print to file
             });
 
             elements.getChildren().remove(answers);
@@ -104,21 +110,4 @@ public class InsertScene {
     private void clearTextFields() {
         this.textFields = new TextField[0];
     }
-
-    private String[] getWords1() {
-        return words1;
-    }
-
-    private void setWords1(String[] words1) {
-        this.words1 = words1;
-    }
-
-    private TextField[] getTextFields() {
-        return textFields;
-    }
-
-    private void setTextFields(TextField[] textFields) {
-        this.textFields = textFields;
-    }
-
 }
