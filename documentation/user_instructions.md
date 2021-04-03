@@ -14,7 +14,7 @@ on the project root folder _SpellChecker_.
 
 Trainer program can be run on command line with command
 ```
-
+mvn compile exec:java -Dexec.mainClass=trainerDomain.Main 
 ```
 on the project root folder _TrainSpellChecker_.
 
