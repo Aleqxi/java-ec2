@@ -10,7 +10,7 @@ import java.util.ArrayDeque;
  */
 public class CheckerService {
 
-    private DictionaryDao initialize;
+    private DictionaryDao initDictionary;
     private String[] dictionary;
     private Levenshtein levenshtein;
     private OptimalStringAlignment optimalStringAlignment;
@@ -20,13 +20,13 @@ public class CheckerService {
      * the resource file
      */
     public CheckerService() {
-        initialize = new FileDictionaryDao();
+        initDictionary = new FileDictionaryDao();
         this.dictionary = null;
         this.levenshtein = new Levenshtein();
         this.optimalStringAlignment = new OptimalStringAlignment();
 
         try {
-            this.dictionary = initialize.initializeDictionary();
+            this.dictionary = initDictionary.initializeDictionary();
         } catch (Exception ex) {
             System.out.println("Initializing the dictionary did not succeed. Program is halted.");
         }
