@@ -10,6 +10,8 @@ For finding frequences of different mistakes that my algorithm recognizes, I hav
 
 I am analyzing a massive amount of blog texts from free corpus (see credit below) but any help is good! The more the merrier.
 
+Results this far are collected to the [result folder under trainer program](https://github.com/sallasal/SpellChecker/tree/main/TrainSpellChecker/results).
+
 ## Data credits
 
 The word list currently found in [project resources](https://github.com/sallasal/SpellChecker/tree/main/SpellChecker/src/main/resources) has 15 000 most common English words and is fetced from [Audience Dialogue website](http://www.audiencedialogue.net/susteng.html).
