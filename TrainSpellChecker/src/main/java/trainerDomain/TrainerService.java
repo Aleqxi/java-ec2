@@ -77,8 +77,9 @@ public class TrainerService {
 
         for (String word : words) {
             word = word.toLowerCase().replace(".", "").replace(",", "")
-                    .replace("!", "").replace("?", "").replace(":", "").
-                    replace("(","").replace(")","").replace("\"", "");
+                    .replace("!", "").replace("?", "").replace(":", "")
+                    .replace("(","").replace(")","").replace("\"", "")
+                    .replace(";","");
 
             if (!word.equals("") && word.indexOf("’") == -1 && word.indexOf("'") == -1
                     && !(pattern.matcher(word).matches()) 
