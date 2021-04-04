@@ -1,16 +1,22 @@
-# User instructions for Spell Checker
+# User instructions for Spell Checker and Trainer Program
 
 Before releases, the program can be run by cloning this project from GitHub.
 
 Project is created wiht Java and requires Java 11 or later. Maven is used.
 
-## Running the program
+## Running the programs
 
-Program can be run on command line with command
+Spell Checker can be run on command line with command
 ```
 mvn compile exec:java -Dexec.mainClass=domain.Main              
 ```
 on the project root folder _SpellChecker_.
+
+Trainer program can be run on command line with command
+```
+mvn compile exec:java -Dexec.mainClass=trainerDomain.Main 
+```
+on the project root folder _TrainSpellChecker_.
 
 ## Usage
 
