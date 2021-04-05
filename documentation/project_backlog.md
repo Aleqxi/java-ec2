@@ -4,7 +4,6 @@ Updated: 26.3.2021
 
 ## Steps to be done
 
-* Add checkstyle
 * Check trimming in main program: replace special characters with whitespaces before splitting
 * Clarify match instructions to match trainer also in main program (ie. case)
 * Refactor the code with getting algorithm test methods to own class in UI package
@@ -35,3 +34,4 @@ Updated: 26.3.2021
 * Get results with distance 1-3, starting from 1 and adding more if results are not good enough 26.3.2021
 * Create skeleton of Spell checker trainer (minimum viable product) 31.3.2021
 * Finish Spell Checker trainer 3.4.2021
+* Add checkstyle 5.4.2021

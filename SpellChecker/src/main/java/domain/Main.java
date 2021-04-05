@@ -1,6 +1,6 @@
 package domain;
 
-import userInterface.*;
+import userinterface.TextUI;
 
 /**
  * Main class that just starts the user interface

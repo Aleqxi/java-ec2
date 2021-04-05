@@ -2,7 +2,7 @@
 <!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN" "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 <module name='Checker'>
 
-    <!-- Set language -->
+    <!-- asetetaan kieliasetukset englanniksi. -->
     <property name="localeCountry" value="EN"/>
     <property name="localeLanguage" value="en"/>
 
@@ -29,12 +29,7 @@
 
         <module name='Indentation' />
         <module name="OneStatementPerLine"/>
-        <module name="MethodLength">
-            <property name="tokens" value="METHOD_DEF"/>
-            <property name="max" value="20"/>
-            <property name="countEmpty" value="false"/>
-        </module>
-
+        
         <!--- Naming Conventions -->
 
         <module name='ClassTypeParameterName' />

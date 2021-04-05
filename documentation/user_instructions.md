@@ -44,3 +44,11 @@ Test coverage can be checked with running this command:
 mvn test jacoco:report
 ```
 in the root folder of the project. This will generate the test coverage report _index.html_ to folder _target/site/jacoco/_.
+
+## Code quality
+
+Checkstyle is used to test static code quality in Spell Checker (not in the trainer program). Run checkstyle from the project root with this command:
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
+The report will appear to the project location /target/site/checkstyle.html.
