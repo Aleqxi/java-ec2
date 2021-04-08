@@ -1,11 +1,9 @@
 # Backlog for Spell Checker
 
-Updated: 26.3.2021
+Updated: 8.4.2021
 
 ## Steps to be done
 
-* Update tests!
-* Clarify match instructions to match trainer also in main program (ie. case)
 * Rewrite the contains method with own code
 * Rewrite ArrayDeques with own code
 * Create basic type weights based on trainer data
@@ -35,3 +33,5 @@ Updated: 26.3.2021
 * Finish Spell Checker trainer 3.4.2021
 * Add checkstyle 5.4.2021
 * Check trimming in main program: replace special characters with whitespaces before splitting 6.4.2021
+* Clarify match instructions to match trainer also in main program 6.4.2021
+* Update tests and check test coverage 8.4.2021

@@ -21,7 +21,7 @@
                 <version>0.8.3</version>
                 <configuration>
                     <excludes>
-                        <exclude>userInterface/*</exclude>
+                        <exclude>userinterface/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>

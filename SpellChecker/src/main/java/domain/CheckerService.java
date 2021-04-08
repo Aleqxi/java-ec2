@@ -119,7 +119,7 @@ public class CheckerService {
      */
     public String[] getWords(String input) {
 
-        input = input.toLowerCase().replaceAll("\\?|\\t|\\n|\"|\'[.,!:;-]", " ");
+        input = input.toLowerCase().replaceAll("\\?|\\t|\\n|\"|\'|[.,!:;-]", " ");
 
         String[] words = input.split(" ");
 

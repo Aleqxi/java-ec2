@@ -60,4 +60,11 @@ public class CheckerServiceTest {
         assertEquals("eat", suggestions[3]);
         assertEquals("lag", suggestions[9]);
     }
+    
+    @Test
+    public void getWordsReturnsCorrectAmountOfWords() {
+        String input = "This is the-test.input?that should return ten words.";
+        String[] words = checkerService.getWords(input);
+        assertEquals(10, words.length);
+    }
 }
