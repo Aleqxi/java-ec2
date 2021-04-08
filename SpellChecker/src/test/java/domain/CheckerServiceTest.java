@@ -36,7 +36,7 @@ public class CheckerServiceTest {
     
     @Test
     public void levenshteinDistanceCallWorks() {
-        int distance = checkerService.getLevenshteinDistance("unicorn", "uincon");
+        int distance = checkerService.devGetLevenshteinDistance("unicorn", "uincon");
         assertEquals(3, distance);
     }
     

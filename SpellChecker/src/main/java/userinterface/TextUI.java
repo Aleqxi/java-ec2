@@ -49,11 +49,11 @@ public class TextUI {
             if (command.equals("c")) {
                 checkSpelling();
             } else if (command.equals("l")) {
-                calculateDistance("Levenshtein");
+                devCalculateDistance("Levenshtein");
             } else if (command.equals("o")) {
-                calculateDistance("optimalStringAlignment");
+                devCalculateDistance("optimalStringAlignment");
             } else if (command.equals("w")) {
-                checkInput();
+                devCheckInput();
             } else if (command.equals("q")) {
                 break;
             } else {
@@ -66,59 +66,19 @@ public class TextUI {
     }
 
     /**
-     * Test method that calculates and prints the distance between two inserted
-     * words
-     *
-     * @param algorithm The algorithm that is used for calculation, Levenshtein
-     * or OSA
-     */
-    private void calculateDistance(String algorithm) {
-        System.out.println("Insert first word:");
-        String word1 = reader.nextLine();
-        System.out.println("Insert second word:");
-        String word2 = reader.nextLine();
-        int distance = -9999;
-
-        if (algorithm.equals("Levenshtein")) {
-            distance = checkerService.getLevenshteinDistance(word1, word2);
-            System.out.println("");
-            System.out.println("Levenshtein edit distance between words is " + distance);
-            System.out.println("");
-        } else if (algorithm.equals("optimalStringAlignment")) {
-            distance = checkerService.getOptimalStringAlignmentDistance(word1, word2);
-            System.out.println("");
-            System.out.println("Optimal string alignment distance between words is " + distance);
-            System.out.println("");
-        }
-    }
-
-    /**
-     * Checks if the input string is found from dictionary
-     *
-     */
-    private void checkInput() {
-        System.out.println("Insert the word that is checked from dictionary:");
-        String input = reader.nextLine();
-
-        if (trimInput(input)) {
-            if (checkerService.checkWordFromDictionary(input)) {
-                System.out.println("The word is found from dictionary.");
-            } else {
-                System.out.println("The word is not found from dictionary.");
-            }
-        }
-    }
-
-    /**
-     * UI method for asking input and checking it before actual spell check
+     * UI method for asking input, preparing it and looping actual check
      */
     private void checkSpelling() {
-        System.out.println("Insert the word for checking:");
+        System.out.println("Insert the text for checking in one line:");
         String input = reader.nextLine();
         System.out.println("");
 
-        if (trimInput(input)) {
-            checkSpellingFor(input);
+        String[] words = checkerService.getWords(input);
+
+        for (int i = 0; i < words.length; i++) {
+            if (!checkerService.checkWordFromDictionary(words[i]) && !words[i].isEmpty()) {
+                checkSpellingForWord(words[i]);
+            }
         }
     }
 
@@ -127,29 +87,26 @@ public class TextUI {
      *
      * @param word the word that needs to be checked
      */
-    public void checkSpellingFor(String word) {
+    public void checkSpellingForWord(String word) {
 
-        if (!checkerService.checkWordFromDictionary(word)) {
-            String[] suggestions = checkerService.getSuggestions(word);
-            boolean found = false;
-            System.out.println("Suggestions (best first): ");
-            System.out.println("");
+        System.out.println("Check this word! Word: " + word);
+        String[] suggestions = checkerService.getSuggestions(word);
+        boolean found = false;
+        System.out.println("\tSuggestions (best first): ");
+        System.out.println("");
 
-            for (int i = 0; i < 10; i++) {
-                if (!suggestions[i].equals("-")) {
-                    System.out.println(suggestions[i]);
-                    found = true;
-                }
-
+        for (int i = 0; i < 10; i++) {
+            if (!suggestions[i].equals("-")) {
+                System.out.println("\t" + suggestions[i]);
+                found = true;
             }
 
-            if (!found) {
-                System.out.println("No suggestions were found.");
-            }
-
-        } else {
-            System.out.println("No worries, the word is proper English word.");
         }
+
+        if (!found) {
+            System.out.println("\tNo suggestions were found.");
+        }
+
     }
 
     /**
@@ -166,19 +123,6 @@ public class TextUI {
     }
 
     /**
-     * Checks that input meets requirements
-     */
-    private boolean trimInput(String input) {
-        if (input.length() > 15 || input.contains(" ")) {
-            System.out.println("The input is longer than 15 characters "
-                    + "or contains whitespace. These are not allowed.");
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
      * First lines of user interface
      */
     private void welcome() {
@@ -188,6 +132,66 @@ public class TextUI {
         System.out.println("**********");
         System.out.println("**********");
         System.out.println("");
+    }
+
+    /**
+     * Test method that calculates and prints the distance between two inserted
+     * words.
+     * Dev method, removed from final version.
+     *
+     * @param algorithm The algorithm that is used for calculation, Levenshtein
+     * or OSA
+     */
+    private void devCalculateDistance(String algorithm) {
+        System.out.println("Insert first word:");
+        String word1 = reader.nextLine();
+        System.out.println("Insert second word:");
+        String word2 = reader.nextLine();
+        int distance = -9999;
+
+        if (algorithm.equals("Levenshtein")) {
+            distance = checkerService.devGetLevenshteinDistance(word1, word2);
+            System.out.println("");
+            System.out.println("Levenshtein edit distance between words is " + distance);
+            System.out.println("");
+        } else if (algorithm.equals("optimalStringAlignment")) {
+            distance = checkerService.getOptimalStringAlignmentDistance(word1, word2);
+            System.out.println("");
+            System.out.println("Optimal string alignment distance between words is " + distance);
+            System.out.println("");
+        }
+    }
+
+    /**
+     * Checks if the input string is found from dictionary.
+     * Dev method, removed from final version.
+     *
+     */
+    private void devCheckInput() {
+        System.out.println("Insert the word that is checked from dictionary:");
+        String input = reader.nextLine();
+
+        if (devTrim(input)) {
+            if (checkerService.checkWordFromDictionary(input)) {
+                System.out.println("The word is found from dictionary.");
+            } else {
+                System.out.println("The word is not found from dictionary.");
+            }
+        }
+    }
+
+    /**
+     * Checks that input meets requirements. Dev method, removed from final
+     * version. 
+     */
+    private boolean devTrim(String input) {
+        if (input.length() > 15 || input.contains(" ")) {
+            System.out.println("The input is longer than 15 characters "
+                    + "or contains whitespace. These are not allowed.");
+            return false;
+        }
+
+        return true;
     }
 
 }

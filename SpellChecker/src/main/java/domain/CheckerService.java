@@ -49,17 +49,6 @@ public class CheckerService {
     }
 
     /**
-     * Calculates Levenshtein edit distance (basic one)
-     *
-     * @param word1 First word for Levenshtein edit distance
-     * @param word2 Second word for Levenshtein edit distance
-     * @return Levenshtein edit distance as integer
-     */
-    public int getLevenshteinDistance(String word1, String word2) {
-        return this.levenshtein.levenshteinDistance(word1, word2);
-    }
-
-    /**
      * Calculates optimal string alignment distance
      *
      * @param word1 First word for OSA distance
@@ -120,6 +109,33 @@ public class CheckerService {
         }
 
         return suggestions;
+    }
+
+    /**
+     * Splits input to word array, sanitizes the input.
+     * 
+     * @param input Input string for splitting
+     * @return String array that contains single words
+     */
+    public String[] getWords(String input) {
+
+        input = input.toLowerCase().replaceAll("\\?|\\t|\\n|\"|\'[.,!:;-]", " ");
+
+        String[] words = input.split(" ");
+
+        return words;
+    }
+
+    /**
+     * Calculates Levenshtein edit distance (basic one). 
+     * Dev method, removed from final version.
+     *
+     * @param word1 First word for Levenshtein edit distance
+     * @param word2 Second word for Levenshtein edit distance
+     * @return Levenshtein edit distance as integer
+     */
+    public int devGetLevenshteinDistance(String word1, String word2) {
+        return this.levenshtein.levenshteinDistance(word1, word2);
     }
 
 }
