@@ -4,7 +4,7 @@ This is a course project for Data Structures and Algorithms lab course, Universi
 
 The course begins on March 2021 and the project is ready in May 2021.
 
-## Trainer program - get Good Person Credits
+## Trainer program
 
 For finding frequences of different mistakes that my algorithm recognizes, I have written also a training program. The code is here [in its own folder](https://github.com/sallasal/SpellChecker/tree/main/TrainSpellChecker). If you want to help me with this projects, please upload the trainer program, use it (perhaps [from command line](https://github.com/sallasal/SpellChecker/blob/main/documentation/user_instructions.md#running-the-programs)) with some natural language sample texts and send me the result csv it writes to the project root. (Email: salla.salokanto at helsinki.fi)
 
@@ -27,3 +27,4 @@ _J. Schler, M. Koppel, S. Argamon and J. Pennebaker (2006). Effects of Age and G
 - [User instructions](https://github.com/sallasal/SpellChecker/blob/main/documentation/user_instructions.md)
 - [Week report 1](https://github.com/sallasal/SpellChecker/blob/main/documentation/week_report_1.md)
 - [Week report 2](https://github.com/sallasal/SpellChecker/blob/main/documentation/week_report_2.md)
+- [Week report 3](https://github.com/sallasal/SpellChecker/blob/main/documentation/week_report_3.md)
