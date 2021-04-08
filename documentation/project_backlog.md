@@ -4,7 +4,6 @@ Updated: 8.4.2021
 
 ## Steps to be done
 
-* Rewrite the contains method with own code
 * Rewrite ArrayDeques with own code
 * Create basic type weights based on trainer data
 * Enhance the correctiveness by weighting letters next to each other on keyboard more (alphabet-weight edit distance)
