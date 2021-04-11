@@ -44,10 +44,6 @@ public class ArrayDeqImplementation {
 
         savedWords--;
 
-        if (savedWords > 10 && savedWords < array.length / 2) {
-            shrink();
-        }
-
         return removed;
     }
 
@@ -84,19 +80,25 @@ public class ArrayDeqImplementation {
 
     /**
      * Method for growing the array. 
-     * This will be implemented if the final program
-     * needs structures with more than 10 slots.
+     * This will be done if the array is full.
      */
     private void grow() {
-        // Not implemented yet, perhaps no need for this
+        String[] newArray = new String[array.length * 2];
+        int newIndex = 0;
+        
+        for (int i = firstUsed; i < array.length; i++) {
+            newArray[newIndex] = array[i];
+            newIndex++;
+        }
+        
+        for (int i = 0; i <= lastUsed; i++) {
+            newArray[newIndex] = array[i];
+            newIndex++;
+        }
+        
+        firstUsed = 0;
+        lastUsed = array.length - 1;
+        array = newArray;
     }
 
-    /**
-     * Method for shrinkin the array. 
-     * This will be implemented if the final program
-     * needs structures with more than 10 slots.
-     */
-    private void shrink() {
-        // Not implemented yet, perhaps no need for this
-    }
 }
