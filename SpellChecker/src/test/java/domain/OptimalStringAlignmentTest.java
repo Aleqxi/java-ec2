@@ -5,10 +5,7 @@
  */
 package domain;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,10 +16,6 @@ import static org.junit.Assert.*;
 public class OptimalStringAlignmentTest {
 
     private OptimalStringAlignment osa;
-
-    public OptimalStringAlignmentTest() {
-
-    }
 
     @Before
     public void setUp() {

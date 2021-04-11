@@ -1,10 +1,10 @@
 package domain;
 
 /**
- * This is my own implementation for ArrayDeque data structure.
- * Growing and shrinking are not yet implemented as they are most likely not
- * needed. At the moment, the program uses structures with max size 10, and
- * this is efficient enough.
+ * This is my own implementation for ArrayDeque data structure. Growing and
+ * shrinking are not yet implemented as they are most likely not needed. At the
+ * moment, the program uses structures with max size 10, and this is efficient
+ * enough.
  *
  * @author sallasal
  */
@@ -27,7 +27,7 @@ public class ArrayDeqImplementation {
 
     /**
      * Remove first string of the queue and return it.
-     * 
+     *
      * @return removed string and null if no string exists.
      */
     public String remove() {
@@ -49,7 +49,7 @@ public class ArrayDeqImplementation {
 
     /**
      * Add new word at the end of the queue.
-     * 
+     *
      * @param word the new word to be added.
      */
     public void addLast(String word) {
@@ -71,7 +71,7 @@ public class ArrayDeqImplementation {
 
     /**
      * Get the size of the queue.
-     * 
+     *
      * @return amount of saved words as int
      */
     public int size() {
@@ -79,23 +79,35 @@ public class ArrayDeqImplementation {
     }
 
     /**
-     * Method for growing the array. 
-     * This will be done if the array is full.
+     * Get word from defined index.
+     *
+     * @return String if there is one in defined index, null otherwise
+     */
+    public String getFromIndex(int i) {
+        if (i <= array.length) {
+            return array[i];
+        }
+
+        return null;
+    }
+
+    /**
+     * Method for growing the array. This will be done if the array is full.
      */
     private void grow() {
         String[] newArray = new String[array.length * 2];
         int newIndex = 0;
-        
+
         for (int i = firstUsed; i < array.length; i++) {
             newArray[newIndex] = array[i];
             newIndex++;
         }
-        
+
         for (int i = 0; i <= lastUsed; i++) {
             newArray[newIndex] = array[i];
             newIndex++;
         }
-        
+
         firstUsed = 0;
         lastUsed = array.length - 1;
         array = newArray;
