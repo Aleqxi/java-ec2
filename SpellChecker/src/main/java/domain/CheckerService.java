@@ -1,7 +1,6 @@
 package domain;
 
 import dao.*;
-import java.util.ArrayDeque;
 
 /**
  * All the program functions are called through this class.
@@ -66,9 +65,9 @@ public class CheckerService {
      * @return 10 best suggestions as String array
      */
     public String[] getSuggestions(String wordFor) {
-        ArrayDeque<String> distance1 = new ArrayDeque<>();
-        ArrayDeque<String> distance2 = new ArrayDeque<>();
-        ArrayDeque<String> distance3 = new ArrayDeque<>();
+        ArrayDeqImplementation distance1 = new ArrayDeqImplementation();
+        ArrayDeqImplementation distance2 = new ArrayDeqImplementation();
+        ArrayDeqImplementation distance3 = new ArrayDeqImplementation();
 
         String[] suggestions = new String[10];
         for (int i = 0; i < 10; i++) {
@@ -113,7 +112,7 @@ public class CheckerService {
 
     /**
      * Splits input to word array, sanitizes the input.
-     * 
+     *
      * @param input Input string for splitting
      * @return String array that contains single words
      */
@@ -127,8 +126,8 @@ public class CheckerService {
     }
 
     /**
-     * Calculates Levenshtein edit distance (basic one). 
-     * Dev method, removed from final version.
+     * Calculates Levenshtein edit distance (basic one). Dev method, removed
+     * from final version.
      *
      * @param word1 First word for Levenshtein edit distance
      * @param word2 Second word for Levenshtein edit distance
