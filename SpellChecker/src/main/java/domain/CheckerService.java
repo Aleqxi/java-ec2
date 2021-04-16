@@ -55,8 +55,8 @@ public class CheckerService {
      * @param word2 Second word for OSA distance
      * @return optimal string alignment distance as integer
      */
-    public int getOptimalStringAlignmentDistance(String word1, String word2) {
-        return this.optimalStringAlignment.optimalStringAlignment(word1, word2);
+    public double getOptimalStringAlignmentDistance(String word1, String word2) {
+        return this.optimalStringAlignment.weightedOSA(word1, word2);
     }
 
     /**
@@ -68,7 +68,6 @@ public class CheckerService {
     public String[] getSuggestions(String wordFor) {
         ArrayDeqImplementation distance1 = new ArrayDeqImplementation();
         ArrayDeqImplementation distance2 = new ArrayDeqImplementation();
-        ArrayDeqImplementation distance3 = new ArrayDeqImplementation();
 
         String[] suggestions = new String[10];
         for (int i = 0; i < 10; i++) {
@@ -76,20 +75,12 @@ public class CheckerService {
         }
 
         for (String word : dictionary) {
-            int distance = this.getOptimalStringAlignmentDistance(wordFor, word);
-
-            switch (distance) {
-                case 1:
-                    distance1.addLast(word);
-                    break;
-                case 2:
-                    distance2.addLast(word);
-                    break;
-                case 3:
-                    distance3.addLast(word);
-                    break;
-                default:
-                    break;
+            double distance = this.getOptimalStringAlignmentDistance(wordFor, word);
+            
+            if (distance <= 1) {
+                distance1.addLast(word);
+            } else if (distance > 1 && distance <= 2) {
+                distance2.addLast(word);
             }
         }
 
@@ -102,10 +93,6 @@ public class CheckerService {
 
         while (i < 10 && distance2.size() > 0) {
             suggestions[i] = distance2.remove();
-        }
-
-        while (i < 10 && distance3.size() > 0) {
-            suggestions[i] = distance3.remove();
         }
 
         return suggestions;

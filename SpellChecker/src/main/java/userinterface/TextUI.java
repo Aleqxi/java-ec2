@@ -75,11 +75,17 @@ public class TextUI {
 
         String[] words = checkerService.getWords(input);
 
+        boolean found = false;
         for (int i = 0; i < words.length; i++) {
             if (!checkerService.checkWordFromDictionary(words[i]) && !words[i].isEmpty()) {
-                checkSpellingForWord(words[i]);
+                found = checkSpellingForWord(words[i]);
             }
         }
+        
+        if (found == false) {
+            System.out.println("All good!");
+        }
+        
     }
 
     /**
@@ -87,7 +93,7 @@ public class TextUI {
      *
      * @param word the word that needs to be checked
      */
-    public void checkSpellingForWord(String word) {
+    public boolean checkSpellingForWord(String word) {
 
         System.out.println("Check this word! Word: " + word);
         String[] suggestions = checkerService.getSuggestions(word);
@@ -106,6 +112,7 @@ public class TextUI {
         if (!found) {
             System.out.println("\tNo suggestions were found.");
         }
+        return found;
 
     }
 
@@ -147,7 +154,7 @@ public class TextUI {
         String word1 = reader.nextLine();
         System.out.println("Insert second word:");
         String word2 = reader.nextLine();
-        int distance = -9999;
+        double distance = -9999;
 
         if (algorithm.equals("Levenshtein")) {
             distance = checkerService.devGetLevenshteinDistance(word1, word2);
