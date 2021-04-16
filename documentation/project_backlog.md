@@ -1,13 +1,10 @@
 # Backlog for Spell Checker
 
-Updated: 11.4.2021
+Updated: 16.4.2021
 
 ## Steps to be done
 
-* Create basic type weights based on trainer data
 * Enhance the correctiveness by weighting letters next to each other on keyboard more (alphabet-weight edit distance)
-* Get results with wider edit distances, if needed (add 4 and perhaps 5)
-* Extend the checking from one word to whole sentence and other longer texts (note to self: check commas and periods).
 * Search for other weights or other ways to increase the efficiency and precision of the algorithm
 * Perhaps try to decrease the memory complexity of optimal string alignment distance (it does not need to keep all the indexes in memory all the time)
 * Create implementation document
@@ -32,5 +29,9 @@ Updated: 11.4.2021
 * Add checkstyle 5.4.2021
 * Check trimming in main program: replace special characters with whitespaces before splitting 6.4.2021
 * Clarify match instructions to match trainer also in main program 6.4.2021
+* Extend the checking from one word to whole sentence and other longer texts 8.4.2021
 * Update tests and check test coverage 8.4.2021
 * Rewrite ArrayDeques with own code, write tests and check functionality 11.4.2021
+* Create basic type weights based on trainer data 16.4.2021
+* Create a testing document 16.4.2021
+* Create implementation document 16.4.2021
