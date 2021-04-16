@@ -36,8 +36,8 @@ public class CheckerServiceTest {
     
     @Test
     public void osaDistanceCallWorks() {
-        int distance = checkerService.getOptimalStringAlignmentDistance("unicorn", "uincon");
-        assertEquals(2, distance);
+        double distance = checkerService.getOptimalStringAlignmentDistance("unicorn", "uincon");
+        assertEquals(1.362, distance, 0.001);
     }
     
     @Test
