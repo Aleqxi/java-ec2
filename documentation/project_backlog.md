@@ -4,6 +4,7 @@ Updated: 16.4.2021
 
 ## Steps to be done
 
+* Get smaller than 1.0 gaps between ArrayDeques for getting better results (this requires more ArrayDeques)
 * Enhance the correctiveness by weighting letters next to each other on keyboard more (alphabet-weight edit distance)
 * Search for other weights or other ways to increase the efficiency and precision of the algorithm
 * Perhaps try to decrease the memory complexity of optimal string alignment distance (it does not need to keep all the indexes in memory all the time)
