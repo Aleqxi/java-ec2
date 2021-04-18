@@ -1,4 +1,4 @@
-# Week report 3
+# Week report 4
 
 I programmed the trainer program and started to collect data for frequency analyses.
 
