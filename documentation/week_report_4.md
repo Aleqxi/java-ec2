@@ -1,8 +1,8 @@
 # Week report 4
 
-I programmed the trainer program and started to collect data for frequency analyses.
+I implemented my own the ArrayDeque features I need and started to use them instead of Java default implementations.
 
-I also continued with the main program. It now accepts longer texts and handles them word by word.
+I also calculated weights for optimal string alignment algorithm and started to use them.
 
 ## Algorithms and data structures
 
