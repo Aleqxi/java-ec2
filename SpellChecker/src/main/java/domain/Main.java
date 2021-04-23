@@ -10,11 +10,12 @@ import userinterface.*;
 public class Main {
 
     public static void main(String[] args) {
+
+        SpellCheckerGUI.main(args);
+
+//        These were used to run text UI during dev
 //        TextUI textUI = new TextUI();
 //        textUI.runUI();
-        
-//        This will be used when GUI is ready and dev classes are refactored. Hopefully this week (5).
-        SpellCheckerGUI.main(args);
     }
 
 }

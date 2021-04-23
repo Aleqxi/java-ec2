@@ -1,5 +1,5 @@
 
-package domain;
+package dev;
 
 import java.lang.Math.*;
 

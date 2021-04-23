@@ -1,4 +1,4 @@
-package userinterface;
+package dev;
 
 import java.util.*;
 import domain.*;
@@ -11,14 +11,14 @@ import domain.*;
 public class TextUI {
 
     private Scanner reader;
-    private CheckerService checkerService;
+    private BU_CheckerService checkerService;
 
     /**
      * Initializes all needed resources for user interface
      */
     public TextUI() {
         this.reader = new Scanner(System.in);
-        this.checkerService = new CheckerService();
+        this.checkerService = new BU_CheckerService();
     }
 
     /**

@@ -1,5 +1,6 @@
-package domain;
+package dev;
 
+import dev.*;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -9,13 +10,13 @@ import static org.junit.Assert.*;
  *
  * @author sallasal
  */
-public class CheckerServiceTest {
+public class BU_CheckerServiceTest {
 
-    CheckerService checkerService;
+    BU_CheckerService checkerService;
 
     @Before
     public void setUp() {
-        this.checkerService = new CheckerService();
+        this.checkerService = new BU_CheckerService();
     }
 
     @Test
@@ -26,6 +27,12 @@ public class CheckerServiceTest {
     @Test
     public void wordIsNotFoundFromDictionary() {
         assertFalse(checkerService.checkWordFromDictionary("dictonay"));
+    }
+    
+    @Test
+    public void levenshteinDistanceCallWorks() {
+        int distance = checkerService.devGetLevenshteinDistance("unicorn", "uincon");
+        assertEquals(3, distance);
     }
     
     @Test

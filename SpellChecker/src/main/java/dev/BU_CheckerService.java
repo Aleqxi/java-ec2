@@ -1,5 +1,6 @@
-package domain;
+package dev;
 
+import domain.*;
 import dev.Levenshtein;
 import dao.*;
 import java.util.ArrayDeque;
@@ -9,7 +10,7 @@ import java.util.ArrayDeque;
  *
  * @author sallasal
  */
-public class CheckerService {
+public class BU_CheckerService {
 
     private DictionaryDao initDictionary;
     private String[] dictionary;
@@ -20,7 +21,7 @@ public class CheckerService {
      * Creates CheckerService instance and initializes the dictionary based on
      * the resource file
      */
-    public CheckerService() {
+    public BU_CheckerService() {
         initDictionary = new FileDictionaryDao();
         this.dictionary = null;
         this.levenshtein = new Levenshtein();
@@ -112,6 +113,18 @@ public class CheckerService {
         String[] words = input.split(" ");
 
         return words;
+    }
+
+    /**
+     * Calculates Levenshtein edit distance (basic one). Dev method, removed
+     * from final version.
+     *
+     * @param word1 First word for Levenshtein edit distance
+     * @param word2 Second word for Levenshtein edit distance
+     * @return Levenshtein edit distance as integer
+     */
+    public int devGetLevenshteinDistance(String word1, String word2) {
+        return this.levenshtein.levenshteinDistance(word1, word2);
     }
 
 }
