@@ -8,7 +8,7 @@ Writing the peer review.
 
 ## Algorithms and data structures
 
-My algorithm starts to be ready now. The weights can be improved a little in the future, but that is all. This is good, as there is just a little time left.
+My algorithm is about to be ready now. The weights can be improved a little in the future, but that is all. This is good, as there is just a little time left.
 
 I think I am going to try larger dictionary for getting better word lists. I could compare the performance, as I need to check time complexity anyway.
 
@@ -39,5 +39,5 @@ I was also thinking that it would not be necessary to test Trainer program, as i
 It is not that good, it only does what is needed as well as is needed (and no better :D), and I could use quite a time with that.
 But I think that is not necessary eihter?
 
-# Hours used
+## Hours used
 12
