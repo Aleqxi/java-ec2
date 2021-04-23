@@ -1,8 +1,7 @@
 package domain;
 
-import dev.Levenshtein;
 import dao.*;
-import java.util.ArrayDeque;
+import java.util.regex.Pattern;
 
 /**
  * All the program functions are called through this class.
@@ -13,7 +12,6 @@ public class CheckerService {
 
     private DictionaryDao initDictionary;
     private String[] dictionary;
-    private Levenshtein levenshtein;
     private OptimalStringAlignment optimalStringAlignment;
 
     /**
@@ -23,7 +21,6 @@ public class CheckerService {
     public CheckerService() {
         initDictionary = new FileDictionaryDao();
         this.dictionary = null;
-        this.levenshtein = new Levenshtein();
         this.optimalStringAlignment = new OptimalStringAlignment();
 
         try {
@@ -112,6 +109,11 @@ public class CheckerService {
         String[] words = input.split(" ");
 
         return words;
+    }
+    
+    public boolean wordIsNumeric(String input) {
+        Pattern numericPattern = Pattern.compile("-?\\d+(\\.\\d+)?");
+        return numericPattern.matcher(input).matches();
     }
 
 }
