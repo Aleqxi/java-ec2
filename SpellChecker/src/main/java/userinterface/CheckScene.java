@@ -37,6 +37,8 @@ public class CheckScene {
         elements.getChildren().add(checkButton);
 
         checkButton.setOnAction((event) -> {
+            falseWords.getChildren().clear();
+
             String[] words = checkerService.getWords(inputText.getText());
 
             String[] suggestions = new String[10];
@@ -45,7 +47,30 @@ public class CheckScene {
             boolean found = false;
             for (int i = 0; i < words.length; i++) {
                 if (!checkerService.checkWordFromDictionary(words[i]) && !words[i].isEmpty()) {
-                    //found = checkSpellingForWord(words[i]);
+                    suggestions = checkerService.getSuggestions(words[i]);
+
+                    GridPane suggestionsPane = new GridPane();
+                    suggestionsPane.setHgap(20);
+                    suggestionsPane.setPadding(new Insets(10, 10, 10, 10));
+                    ColumnConstraints columnWidth = new ColumnConstraints();
+                    columnWidth.setMinWidth(60);
+                    suggestionsPane.getColumnConstraints().add(columnWidth);
+
+                    suggestionsPane.add(new Label(words[i]), 0, 0);
+
+                    for (int j = 0; j < 10; j++) {
+                        if (!suggestions[j].equals("-")) {
+                            suggestionsPane.add(new Label(suggestions[j]), 1, j);
+                        }
+                    }
+
+                    try {
+                        falseWords.getChildren().add(suggestionsPane);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                    found = true;
                 }
             }
 
