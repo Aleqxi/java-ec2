@@ -8,8 +8,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 /**
- * This creates the scene where user can check the spelling of the text input.
- * Still on dev, not used in main program yet!
+ * This class creates the scene where user can check the spelling of the text input.
  *
  * @author sallasal
  */
