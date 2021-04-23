@@ -20,16 +20,10 @@ on the project root folder _TrainSpellChecker_.
 
 ## Usage
 
-Text user interface is quite self-explanatory. At the moment, user can select these options:
+The new GUI is quite self-explanatory. The only funcion it does is spell checking.
 
-* c : check spelling! [This is the main function of the program.]
-* l : this command calculates basic Levenshtein edit distance between two words inserted by user.
-* o : this command calculates optimal string alignment distance between two words inserted by user.
-* w : this command checks if the word inserted is in the resource dictionary.
-* q : stops the execution.
-
-The inputs should be single words without white spaces. __At the moment, inputs are not trimmed, so failures can happen if something other is inserted.__
-This is because the usage of the program is not in its final form.
+Just add the text you want to check to text area in the window and click the button.
+The program lists the false words and the suggestions to replace them (best suggestions first).
 
 ## Testing and test coverage
 

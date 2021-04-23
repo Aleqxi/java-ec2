@@ -1,12 +1,13 @@
 # Implementation document for Spell Checker
 
-Updated 16.4.2021
+Updated 23.4.2021
 
 ## Package structure
 
-The program contains three packages:
+The program contains four packages:
 
 * dao
+* dev
 * domain
 * userinterface
 
@@ -19,6 +20,10 @@ Other classes in this package are the algorithm and data structure implementatio
 This package has dependence on the package _dao_, as the classes here do use the dictionary resources.
 
 Package _userinterface_ contains text-based user interface. Its functionalities are self-explanatory.
+
+Package _dev_ contains all the classes and methods that are used during the development. 
+There are no dependences to that class from other classes, and these are not actively used in the program.
+The package also contains old text-based user interface that is replaced with GUI on week 5.
 
 ## File resources
 
