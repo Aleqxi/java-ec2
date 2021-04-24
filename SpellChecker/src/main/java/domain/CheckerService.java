@@ -73,8 +73,13 @@ public class CheckerService {
         }
 
         for (String word : dictionary) {
-            double distance = this.getOptimalStringAlignmentDistance(wordFor, word);
-            
+
+            double distance = 10;
+
+            if (!(word == null)) {
+                distance = this.getOptimalStringAlignmentDistance(wordFor, word);
+            }
+
             if (distance <= 1) {
                 distance1.addLast(word);
             } else if (distance > 1 && distance <= 2) {
@@ -110,10 +115,15 @@ public class CheckerService {
 
         return words;
     }
-    
+
     public boolean wordIsNumeric(String input) {
         Pattern numericPattern = Pattern.compile("-?\\d+(\\.\\d+)?");
         return numericPattern.matcher(input).matches();
+    }
+
+    public void printDuration(long startTime) {
+        long duration = System.nanoTime() - startTime;
+        System.out.println("Checking spelling took " + duration + "ns");
     }
 
 }

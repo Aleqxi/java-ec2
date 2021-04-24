@@ -42,6 +42,8 @@ public class CheckScene {
 
         checkButton.setOnAction((event) -> {
             falseWords.getChildren().clear();
+            
+            long startTime = System.nanoTime();
 
             String[] words = checkerService.getWords(inputText.getText());
 
@@ -83,6 +85,8 @@ public class CheckScene {
             if (found == false) {
                 falseWords.getChildren().add(new Label("All good!"));
             }
+            
+            checkerService.printDuration(startTime);
         });
 
         elements.getChildren().remove(falseWords);

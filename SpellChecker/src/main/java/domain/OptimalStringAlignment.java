@@ -13,7 +13,7 @@ public class OptimalStringAlignment {
      * @param word2 the second word used for OSA calculation
      * @return optimal string alignment distance as int
      */
-    public double weightedOSA(String word1, String word2) {
+    public double weightedOSA(String word1, String word2) {   
         double[][] substringTable = new double[word2.length() + 1][word1.length() + 1];
 
         for (int column = 0; column <= word1.length(); column++) {
