@@ -14,7 +14,10 @@ Results this far are collected to the [result folder under trainer program](http
 
 ## Data credits
 
-The word list currently found in [project resources](https://github.com/sallasal/SpellChecker/tree/main/SpellChecker/src/main/resources) has 15 000 most common English words and is fetched from [Audience Dialogue website](http://www.audiencedialogue.net/susteng.html).
+The smaller word list (10K) currently found in [project resources](https://github.com/sallasal/SpellChecker/tree/main/SpellChecker/src/main/resources) has 15 000 most common English words and is fetched from [Audience Dialogue website](http://www.audiencedialogue.net/susteng.html).
+
+24.4.2021 I also added larger (58K+) word list in project resources.
+This file has 58 110 most common English words and it is fetched from [Mieliestronk's website](http://www.mieliestronk.com/wordlist.html).
 
 The free natural language text corpus is used to find out best weights for different kind of mistakes. The corpus [can be uploaded for free](https://u.cs.biu.ac.il/~koppel/BlogCorpus.htm) and is created for this study: 
 
