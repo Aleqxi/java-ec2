@@ -31,6 +31,30 @@ mvn test jacoco:report
 ```
 This generates the html report to folder _target/site/jacoco/_.
 
+## Performance testing
+
+Performance tests are executed with two different dictionaries, with 10K and 58K+ words. 
+While executing performance tests, I also checked that both dictionaries produce reasonable suggestions (and do not produce suggestions when not needed).
+Of course, there are some differences between final results as the dictionaries are different, but the setting should get correct values for runtimes.
+
+All the similar test cases are tested with exactly same sentences.
+
+Results:
+
+### Dictionary with 10K words
+
+* Simple 6-word sentence without spelling errors
+  * 6691364 ns
+* Simple 6-word sentence with two spelling errors
+  * 87479226 ns
+
+### Dictionary with 58K+ words
+
+* Simple 6-word sentence without spelling errors
+  * 4902501 ns
+* Simple 6-word sentence with two spelling errors
+  * 163629657 ns
+
 ## User testing
 
 The program is also tested from the user perspective regularly during the development process.
