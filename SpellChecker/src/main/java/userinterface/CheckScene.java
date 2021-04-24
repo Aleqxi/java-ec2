@@ -14,6 +14,12 @@ import javafx.stage.Stage;
  */
 public class CheckScene {
 
+    /**
+     * Creates the scene that has spell checking feature
+     * @param window is the main window of the graphical user interface
+     * @param checkerService is the spell checker service instance
+     * @return the scene that contains spell checking feature.
+     */
     public Scene getCheckScene(Stage window, CheckerService checkerService) {
         ScrollPane scrollable = new ScrollPane();
         BorderPane checkerLayout = new BorderPane();
@@ -89,6 +95,11 @@ public class CheckScene {
 
     }
 
+     /**
+     * Replace array values with "-" that is empty value in the program.
+     * @param array is the array that needs to be cleaned
+     * @return String array that is empty (all strings are "-").
+     */
     private String[] cleanArray(String[] array) {
         for (int i = 0; i < array.length; i++) {
             array[i] = "-";
