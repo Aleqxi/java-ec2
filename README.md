@@ -1,6 +1,6 @@
 # Spell Checker
 
-This is a course project for Data Structures and Algorithms lab course, University of Helsinki, spring 2021.
+This program is spell checker, a course project for Data Structures and Algorithms lab course, University of Helsinki, spring 2021.
 
 The course begins on March 2021 and the project is ready in May 2021.
 
@@ -11,6 +11,8 @@ For finding frequences of different mistakes that my algorithm recognizes, I hav
 I am analyzing a massive amount of blog texts from free corpus (see credit below) but any help is good! The more the merrier.
 
 Results this far are collected to the [result folder under trainer program](https://github.com/sallasal/SpellChecker/tree/main/TrainSpellChecker/results).
+
+__Trainer program is not tested or commented well, it is just for me helping to analyze the data. It is written in very few hours and is not good.__ Not to be graded, hopefully...
 
 ## Data credits
 
