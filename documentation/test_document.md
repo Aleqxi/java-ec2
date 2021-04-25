@@ -31,29 +31,29 @@ mvn test jacoco:report
 ```
 This generates the html report to folder _target/site/jacoco/_.
 
-## Performance testing
+## Comparative performance testing
 
 Performance tests are executed with two different dictionaries, with 10K and 58K+ words. 
 While executing performance tests, I also checked that both dictionaries produce reasonable suggestions (and do not produce suggestions when not needed).
 Of course, there are some differences between final results as the dictionaries are different, but the setting should get correct values for runtimes.
 
-All the similar test cases are tested with exactly same sentences.
+All the similar test cases, rows in the result table, are tested with exactly same inputs.
+Error counts in the table are separated words at the moment, as there is no duplicate check yet when doing this.
+Duplicate check will be tested later separatedly and added to the table.
 
-Results:
+Results (time unit is ns):
 
-### Dictionary with 10K words
+| Type of input                                       | Dictionary with 10K words | Dictionary with 58K words |
+|-----------------------------------------------------|:-------------------------:|:-------------------------:|
+| Simple 6-word sentence without spelling errors      | 6 691 364                 | 5 232 745                 |
+| Simple 6-word sentence with two spelling errors     | 87 479 226                | 163 629 657               |
+| Long natural language sample with 1056 words        | 440 128 607 (32 mistakes) | 488 352 382 (7 mistakes)  |
 
-* Simple 6-word sentence without spelling errors
-  * 6691364 ns
-* Simple 6-word sentence with two spelling errors
-  * 87479226 ns
+__It seems that using the larger dictionary does add the runtime, if the count of errors stay the same. But as the larger dictionary categorizes less correct words as mistakes, the results keep almost the same and are much better for the user.__
 
-### Dictionary with 58K+ words
+Of course, larger dictionary requires more space, but it enhances the user experience so much that it is definitely necessary.
 
-* Simple 6-word sentence without spelling errors
-  * 4902501 ns
-* Simple 6-word sentence with two spelling errors
-  * 163629657 ns
+Further testing will follow.
 
 ## User testing
 
