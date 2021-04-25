@@ -35,7 +35,7 @@ public class ArrayDeqImplementation {
 
         if (array[firstUsed] != null) {
             removed = array[firstUsed];
-            if (firstUsed == array.length - 1) {
+            if (firstUsed == array.length -1) {
                 firstUsed = 0;
             } else {
                 firstUsed++;
@@ -84,7 +84,7 @@ public class ArrayDeqImplementation {
      * @return String if there is one in defined index, null otherwise
      */
     public String getFromIndex(int i) {
-        if (i <= array.length) {
+        if (i < array.length) {
             return array[i];
         }
 

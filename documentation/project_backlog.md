@@ -4,6 +4,7 @@ Updated: 25.4.2021
 
 ## Steps to be done
 
+* Track and fix some array length +-1 issue that prints when testing, found 25.4.2021
 * After first performance tests are completed, enhance performance with tracking already saved words.
 * Finalize the user interface
 * Finalize the documentation

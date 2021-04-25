@@ -20,7 +20,7 @@ public class FileDictionaryDao implements DictionaryDao {
      * Initializes the data access object and class variables
      */
     public FileDictionaryDao() {
-        dictionary = new String[85110];
+        dictionary = new String[58110];
     }
 
     /**
