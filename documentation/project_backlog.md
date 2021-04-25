@@ -1,10 +1,10 @@
 # Backlog for Spell Checker
 
-Updated: 24.4.2021
+Updated: 25.4.2021
 
 ## Steps to be done
 
-* Get smaller than 1.0 gaps between ArrayDeques for getting better results (this requires more ArrayDeques)
+* After first performance tests are completed, enhance performance with tracking already saved words.
 * Finalize the user interface
 * Finalize the documentation
 * Get more data and use more accurate weights
@@ -37,3 +37,5 @@ Updated: 24.4.2021
 * Create a GUI and start using it 23.4.2021
 * Refactor code and move dev classes, methods and backups to their own package 23.4.2021
 * Get larger dictionary and start comparing the performance with different dictionaries. 24.4.2021
+* Skip one-character words 25.4.2021
+* Refactoring: clarify GUI and SpellChecker difference in code 25.4.2021

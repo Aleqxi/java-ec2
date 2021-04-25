@@ -53,8 +53,7 @@ public class CheckScene {
             boolean found = false;
             for (int i = 0; i < words.length; i++) {
                 if (!checkerService.checkWordFromDictionary(words[i]) 
-                        && !words[i].isEmpty() 
-                        && !checkerService.wordIsNumeric(words[i])) {
+                        && checkerService.wordQualityIsGood(words[i])) {
                     suggestions = checkerService.getSuggestions(words[i]);
 
                     GridPane suggestionsPane = new GridPane();

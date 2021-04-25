@@ -115,8 +115,15 @@ public class CheckerService {
 
         return words;
     }
+    
+    public boolean wordQualityIsGood(String input) {
+        if (!(input.isEmpty()) && input.length() > 1 && !wordIsNumeric(input)) {
+            return true;
+        }
+        return false;
+    }
 
-    public boolean wordIsNumeric(String input) {
+    private boolean wordIsNumeric(String input) {
         Pattern numericPattern = Pattern.compile("-?\\d+(\\.\\d+)?");
         return numericPattern.matcher(input).matches();
     }
