@@ -109,25 +109,41 @@ public class CheckerService {
      */
     public String[] getWords(String input) {
 
-        input = input.toLowerCase().replaceAll("\\?|\\t|\\n|\"|\'|[.,!:;-]", " ");
+        input = input.toLowerCase().replaceAll("\\?|\\t|\\n|\"|\'|\\@|\\%|[.,!:;-]", " ");
 
         String[] words = input.split(" ");
 
         return words;
     }
-    
+
+    /**
+     * Checks the word quality for user interface.
+     * Skips the empty words, one-character words and numeric words.
+     *
+     * @param input the user input
+     * @return true, if the input meets the requirements, false otherwise.
+     */
     public boolean wordQualityIsGood(String input) {
-        if (!(input.isEmpty()) && input.length() > 1 && !wordIsNumeric(input)) {
-            return true;
-        }
-        return false;
+        return !(input.isEmpty()) && input.length() > 1 && !wordIsNumeric(input);
     }
 
+    /**
+     * Checks if the input is numeric.
+     *
+     * @param input the user input
+     * @return true, if the input is numeric value, false otherwise
+     */
     private boolean wordIsNumeric(String input) {
         Pattern numericPattern = Pattern.compile("-?\\d+(\\.\\d+)?");
         return numericPattern.matcher(input).matches();
     }
 
+    /**
+     * Prints the duration of the checking round to the console (as nanoseconds).
+     * Used for testing purposes.
+     *
+     * @param startTime the execution start time as nanoseconds (system time)
+     */
     public void printDuration(long startTime) {
         long duration = System.nanoTime() - startTime;
         System.out.println("Checking spelling took " + duration + "ns");
