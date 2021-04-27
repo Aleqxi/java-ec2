@@ -1,10 +1,9 @@
 # Backlog for Spell Checker
 
-Updated: 25.4.2021
+Updated: 27.4.2021
 
 ## Steps to be done
 
-* Track and fix some array length +-1 issue that prints when testing, found 25.4.2021
 * After first performance tests are completed, enhance performance with tracking already saved words.
 * Finalize the user interface
 * Finalize the documentation
@@ -40,3 +39,4 @@ Updated: 25.4.2021
 * Get larger dictionary and start comparing the performance with different dictionaries. 24.4.2021
 * Skip one-character words 25.4.2021
 * Refactoring: clarify GUI and SpellChecker difference in code 25.4.2021
+* Track and fix array length +-1 issue that prints when testing and initializing 27.4.2021
