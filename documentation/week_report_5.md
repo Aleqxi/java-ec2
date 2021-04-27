@@ -36,8 +36,8 @@ Otherwise I mainly did refactoring and graphical user interface.
 Is it needed to test user interface with unit tests? From Telegram I understood that that would not be necessary?
 
 I was also thinking that it would not be necessary to test Trainer program, as it is not part of my main program.
-It is not that good, it only does what is needed as well as is needed (and no better :D), and I could use quite a time with that.
-But I think that is not necessary eihter?
+It is not that good, it only does what is needed as well as is needed (and not any better :D), and I could use quite a time with that.
+But I think that is not necessary either?
 
 ## Hours used
 12
