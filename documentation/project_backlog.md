@@ -5,6 +5,7 @@ Updated: 27.4.2021
 ## Steps to be done
 
 * After first performance tests are completed, enhance performance with tracking already saved words.
+* Add one more level to add bigger optimal string alignment distances (as some rare long words do not get suggestions at all with current limits)
 * Finalize the user interface
 * Finalize the documentation
 * Get more data and use more accurate weights
