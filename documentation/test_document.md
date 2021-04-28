@@ -48,7 +48,7 @@ Results (time unit is ns):
 | Simple 6-word sentence without spelling errors      | 6 691 364                  | 5 232 745                  |
 | Simple 6-word sentence with two spelling errors     | 87 479 226                 | 163 629 657                |
 | Short natural text example with 73 words            | 29 122 092 (2 mistakes)    | 29 550 304 (0 mistakes)    |
-| Short natural text example with 73 words, corrected | 2 366 777 (0 mistakes)     | -                          |
+| Short natural text example with 73 words, corrected | 31 218 871 (0 mistakes)    | -                          |
 | Medium-sized natural text example with 541 words    | 255 436 300 (22 mistakes)  | 794 809 957 (22 mistakes)  |
 | Long natural language sample with 1056 words        | 440 128 607 (32 mistakes)  | 488 352 382 (7 mistakes)   |
 | Very long natural language sample with 4379 words   | 3 413 549 748 (330 mist.)  | 7 977 595 831 (204 mist.)  |
