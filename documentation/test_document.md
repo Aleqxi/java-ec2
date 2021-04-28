@@ -43,17 +43,21 @@ Duplicate check will be tested later separatedly and added to the table.
 
 Results (time unit is ns):
 
-| Type of input                                       | Dictionary with 10K words | Dictionary with 58K words |
-|-----------------------------------------------------|:-------------------------:|:-------------------------:|
-| Simple 6-word sentence without spelling errors      | 6 691 364                 | 5 232 745                 |
-| Simple 6-word sentence with two spelling errors     | 87 479 226                | 163 629 657               |
-| Long natural language sample with 1056 words        | 440 128 607 (32 mistakes) | 488 352 382 (7 mistakes)  |
+| Type of input                                       | Dictionary with 10K words  | Dictionary with 58K words  |
+|-----------------------------------------------------|:--------------------------:|:--------------------------:|
+| Simple 6-word sentence without spelling errors      | 6 691 364                  | 5 232 745                  |
+| Simple 6-word sentence with two spelling errors     | 87 479 226                 | 163 629 657                |
+| Short natural text example with 73 words            | 29 122 092 (2 mistakes)    | 29 550 304 (0 mistakes)    |
+| Short natural text example with 73 words, corrected | 2 366 777 (0 mistakes)     | -                          |
+| Medium-sized natural text example with 541 words    | 255 436 300 (22 mistakes)  | 794 809 957 (22 mistakes)  |
+| Long natural language sample with 1056 words        | 440 128 607 (32 mistakes)  | 488 352 382 (7 mistakes)   |
+| Very long natural language sample with 4379 words   | 3 413 549 748 (330 mist.)  | 7 977 595 831 (204 mist.)  |
 
-__It seems that using the larger dictionary does add the runtime, if the count of errors stay the same. But as the larger dictionary categorizes less correct words as mistakes, the results keep almost the same and are much better for the user.__
+It seems that using the larger dictionary does add the runtime, if the count of errors stay in the same range. But as the larger dictionary categorizes less correct words as mistakes, the results keep almost the same and are much better for the user. This is so even as the check time is quite large with very long texts, like long articles.
 
 Of course, larger dictionary requires more space, but it enhances the user experience so much that it is definitely necessary.
 
-Further testing will follow.
+It is also important to note that the less the algorithm finds the mistakes, the better. __Both dictionaries do find real errors.__ But the larger dictionary claims less correct words to be errors. This makes the larger dictionary very much easier for the user.
 
 ## User testing
 
