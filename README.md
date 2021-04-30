@@ -37,3 +37,4 @@ _J. Schler, M. Koppel, S. Argamon and J. Pennebaker (2006). Effects of Age and G
 - [Week report 3](https://github.com/sallasal/SpellChecker/blob/main/documentation/week_report_3.md)
 - [Week report 4](https://github.com/sallasal/SpellChecker/blob/main/documentation/week_report_4.md)
 - [Week report 5](https://github.com/sallasal/SpellChecker/blob/main/documentation/week_report_5.md)
+- [Week report 6](https://github.com/sallasal/SpellChecker/blob/main/documentation/week_report_6.md)
