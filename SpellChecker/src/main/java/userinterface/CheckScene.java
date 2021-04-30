@@ -50,7 +50,7 @@ public class CheckScene {
             String[] suggestions = new String[10];
             cleanArray(suggestions);
 
-            boolean found = false;
+            int count = 0;
             for (int i = 0; i < words.length; i++) {
                 if (!checkerService.checkWordFromDictionary(words[i]) 
                         && checkerService.wordQualityIsGood(words[i])) {
@@ -77,12 +77,14 @@ public class CheckScene {
                         System.out.println(e.getMessage());
                     }
 
-                    found = true;
+                    count++;
                 }
             }
 
-            if (found == false) {
+            if (count == 0) {
                 falseWords.getChildren().add(new Label("All good!"));
+            } else {
+                falseWords.getChildren().add(new Label("There were " + count + " errors found."));
             }
             
             checkerService.printDuration(startTime);

@@ -20,7 +20,7 @@ public class FileDictionaryDao implements DictionaryDao {
      * Initializes the data access object and class variables
      */
     public FileDictionaryDao() {
-        dictionary = new String[58111];
+        dictionary = new String[15000];
     }
 
     /**
@@ -36,7 +36,7 @@ public class FileDictionaryDao implements DictionaryDao {
         try {
             
             ClassLoader classLoader = this.getClass().getClassLoader();
-            inputStream = classLoader.getResourceAsStream("words58K.txt");
+            inputStream = classLoader.getResourceAsStream("words15K.txt");
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String row;
             int i = 0;
