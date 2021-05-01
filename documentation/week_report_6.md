@@ -1,4 +1,4 @@
-# Week report 5
+# Week report 6
 
 Added larger dictionary to resources.
 
