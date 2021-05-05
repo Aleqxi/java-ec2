@@ -85,6 +85,7 @@ public class CheckerService {
     public String[] getSuggestions(String wordFor) {
         ArrayDeqImplementation distance1 = new ArrayDeqImplementation();
         ArrayDeqImplementation distance2 = new ArrayDeqImplementation();
+        ArrayDeqImplementation moreSuggestions = new ArrayDeqImplementation();
 
         String[] suggestions = new String[10];
         for (int i = 0; i < 10; i++) {
@@ -103,6 +104,8 @@ public class CheckerService {
                 distance1.addLast(word);
             } else if (distance > 1 && distance <= 2) {
                 distance2.addLast(word);
+            } else if (distance > 2 && distance <= 5) {
+                moreSuggestions.addLast(word);
             }
         }
 
@@ -115,6 +118,12 @@ public class CheckerService {
 
         while (i < 10 && distance2.size() > 0) {
             suggestions[i] = distance2.remove();
+        }
+        
+        if (i == 0) {
+            while (i < 10 && moreSuggestions.size() > 0) {
+                suggestions[i] = moreSuggestions.remove();
+            }
         }
 
         this.checkedWords.addLast(wordFor);
