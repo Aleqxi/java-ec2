@@ -42,6 +42,7 @@ public class CheckScene {
 
         checkButton.setOnAction((event) -> {
             falseWords.getChildren().clear();
+            checkerService.clearCheckedWords();
             
             long startTime = System.nanoTime();
 
@@ -53,7 +54,8 @@ public class CheckScene {
             int count = 0;
             for (int i = 0; i < words.length; i++) {
                 if (!checkerService.checkWordFromDictionary(words[i]) 
-                        && checkerService.wordQualityIsGood(words[i])) {
+                        && checkerService.wordQualityIsGood(words[i]) 
+                        && !checkerService.checkIfWordIsDuplicate(words[i])) {
                     suggestions = checkerService.getSuggestions(words[i]);
 
                     GridPane suggestionsPane = new GridPane();

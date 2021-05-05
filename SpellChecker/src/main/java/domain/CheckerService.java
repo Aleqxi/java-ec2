@@ -13,6 +13,7 @@ public class CheckerService {
     private DictionaryDao initDictionary;
     private String[] dictionary;
     private OptimalStringAlignment optimalStringAlignment;
+    private ArrayDeqImplementation checkedWords;
 
     /**
      * Creates CheckerService instance and initializes the dictionary based on
@@ -22,6 +23,7 @@ public class CheckerService {
         initDictionary = new FileDictionaryDao();
         this.dictionary = null;
         this.optimalStringAlignment = new OptimalStringAlignment();
+        this.checkedWords = new ArrayDeqImplementation();
 
         try {
             this.dictionary = initDictionary.initializeDictionary();
@@ -39,6 +41,23 @@ public class CheckerService {
     public boolean checkWordFromDictionary(String input) {
         for (String word : this.dictionary) {
             if (input.equals(word)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks if the input is already checked and suggestions created.
+     *
+     * @param input the user input
+     * @return true, if the input is already checked, false otherwise
+     */
+    public boolean checkIfWordIsDuplicate(String input) {
+
+        for (int i = 0; i < this.checkedWords.size(); i++) {
+            if (input.equals(this.checkedWords.getFromIndex(i))) {
                 return true;
             }
         }
@@ -98,6 +117,8 @@ public class CheckerService {
             suggestions[i] = distance2.remove();
         }
 
+        this.checkedWords.addLast(wordFor);
+
         return suggestions;
     }
 
@@ -117,8 +138,8 @@ public class CheckerService {
     }
 
     /**
-     * Checks the word quality for user interface.
-     * Skips the empty words, one-character words and numeric words.
+     * Checks the word quality for user interface. Skips the empty words,
+     * one-character words and numeric words.
      *
      * @param input the user input
      * @return true, if the input meets the requirements, false otherwise.
@@ -139,14 +160,22 @@ public class CheckerService {
     }
 
     /**
-     * Prints the duration of the checking round to the console (as nanoseconds).
-     * Used for testing purposes.
+     * Prints the duration of the checking round to the console (as
+     * nanoseconds). Used for testing purposes.
      *
      * @param startTime the execution start time as nanoseconds (system time)
      */
     public void printDuration(long startTime) {
         long duration = System.nanoTime() - startTime;
         System.out.println("Checking spelling took " + duration + "ns");
+    }
+
+    /**
+     * Clears the checked words ArrayDeque (my own implementation)
+     *
+     */
+    public void clearCheckedWords() {
+        this.checkedWords = new ArrayDeqImplementation();
     }
 
 }
