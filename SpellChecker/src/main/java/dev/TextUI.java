@@ -11,14 +11,14 @@ import domain.*;
 public class TextUI {
 
     private Scanner reader;
-    private BU_CheckerService checkerService;
+    private BuCheckerService checkerService;
 
     /**
      * Initializes all needed resources for user interface
      */
     public TextUI() {
         this.reader = new Scanner(System.in);
-        this.checkerService = new BU_CheckerService();
+        this.checkerService = new BuCheckerService();
     }
 
     /**

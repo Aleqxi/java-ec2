@@ -10,7 +10,7 @@ import java.util.ArrayDeque;
  *
  * @author sallasal
  */
-public class BU_CheckerService {
+public class BuCheckerService {
 
     private DictionaryDao initDictionary;
     private String[] dictionary;
@@ -21,7 +21,7 @@ public class BU_CheckerService {
      * Creates CheckerService instance and initializes the dictionary based on
      * the resource file
      */
-    public BU_CheckerService() {
+    public BuCheckerService() {
         initDictionary = new FileDictionaryDao();
         this.dictionary = null;
         this.levenshtein = new Levenshtein();

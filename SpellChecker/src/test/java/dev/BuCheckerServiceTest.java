@@ -11,13 +11,13 @@ import static org.junit.Assert.*;
  *
  * @author sallasal
  */
-public class BU_CheckerServiceTest {
+public class BuCheckerServiceTest {
 
-    BU_CheckerService checkerService;
+    BuCheckerService checkerService;
 
     @Before
     public void setUp() {
-        this.checkerService = new BU_CheckerService();
+        this.checkerService = new BuCheckerService();
     }
 
     @Test

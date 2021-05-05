@@ -35,7 +35,7 @@ public class ArrayDeqImplementation {
 
         if (array[firstUsed] != null) {
             removed = array[firstUsed];
-            if (firstUsed == array.length -1) {
+            if (firstUsed == array.length - 1) {
                 firstUsed = 0;
             } else {
                 firstUsed++;
