@@ -4,11 +4,8 @@ Updated: 27.4.2021
 
 ## Steps to be done
 
-* After first performance tests are completed, enhance performance with tracking already saved words.
-* Add one more level to add bigger optimal string alignment distances (as some rare long words do not get suggestions at all with current limits)
 * Finalize the user interface
 * Finalize the documentation
-* Get more data and use more accurate weights
 
 ## Done
 
@@ -41,3 +38,5 @@ Updated: 27.4.2021
 * Skip one-character words 25.4.2021
 * Refactoring: clarify GUI and SpellChecker difference in code 25.4.2021
 * Track and fix array length +-1 issue that prints when testing and initializing 27.4.2021
+* After first performance tests are completed, enhance performance with tracking already saved words. 5.5.2021
+* Add one more level to add bigger optimal string alignment distances (as some rare long words do not get suggestions at all with current limits) 5.5.2021
