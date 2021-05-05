@@ -186,5 +186,9 @@ public class CheckerService {
     public void clearCheckedWords() {
         this.checkedWords = new ArrayDeqImplementation();
     }
+    
+    public ArrayDeqImplementation getCheckedWords() {
+        return this.checkedWords;
+    }
 
 }

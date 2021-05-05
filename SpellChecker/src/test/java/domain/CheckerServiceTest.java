@@ -48,9 +48,6 @@ public class CheckerServiceTest {
         assertThat(suggestions[0], not("-"));
         assertThat(suggestions[3], not("-"));
         assertThat(suggestions[9], not("-"));
-//        assertEquals("at", suggestions[0]);
-//        assertEquals("eat", suggestions[3]);
-//        assertEquals("lag", suggestions[9]);
     }
     
     @Test
@@ -58,5 +55,52 @@ public class CheckerServiceTest {
         String input = "This is the-test.input?that should return ten words.";
         String[] words = checkerService.getWords(input);
         assertEquals(10, words.length);
+    }
+    
+    @Test
+    public void wordQualityCheckAcceptsGoodWord() {
+        assertTrue(checkerService.wordQualityIsGood("Accep-table"));
+    }
+    
+    @Test
+    public void wordQualityCheckReturnsFalsesCorrectly() {
+        assertFalse(checkerService.wordQualityIsGood("54.6"));
+        assertFalse(checkerService.wordQualityIsGood(""));
+        assertFalse(checkerService.wordQualityIsGood("k"));
+    }
+    
+    @Test
+    public void duplicateCheckReturnsTrueCorrectly() {
+        String[] suggestions = checkerService.getSuggestions("sentece");
+        assertTrue(checkerService.checkIfWordIsDuplicate("sentece"));
+    }
+    
+    @Test
+    public void duplicateCheckReturnsFalseCorrectly() {
+        assertFalse(checkerService.checkIfWordIsDuplicate("new-word"));
+    }
+    
+    @Test
+    public void clearCheckedWordsWorks() {
+        for (Integer i = 0; i < 30; i++) {
+            checkerService.getSuggestions(i.toString());
+        }
+        ArrayDeqImplementation arrayDeq = checkerService.getCheckedWords();
+        assertTrue(arrayDeq.size() > 20);
+        checkerService.clearCheckedWords();
+        arrayDeq = checkerService.getCheckedWords();
+        assertEquals(0, arrayDeq.size());
+    }
+    
+    @Test
+    public void veryRareWordSuggestionsWork() {
+        String[] suggestions = checkerService.getSuggestions("veryrareword");
+        boolean suggestionFound = false;
+        for (String word : suggestions) {
+            if (!word.equals("-")) {
+                suggestionFound = true;
+            }
+        }
+        assertTrue(suggestionFound);
     }
 }

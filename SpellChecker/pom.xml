@@ -27,6 +27,7 @@
                 <configuration>
                     <excludes>
                         <exclude>userinterface/*</exclude>
+                        <exclude>dev/TextUI.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>
