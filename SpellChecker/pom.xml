@@ -28,6 +28,7 @@
                     <excludes>
                         <exclude>userinterface/*</exclude>
                         <exclude>dev/TextUI.class</exclude>
+                        <exclude>dev/BuCheckerService.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>
