@@ -39,7 +39,7 @@ public class CheckerServiceTest {
     public void getSuggestionsOffersLessThan10Correctly() {
         String[] suggestions = checkerService.getSuggestions("marvelous");
         assertEquals("marvellous", suggestions[0]);
-        assertEquals("-", suggestions[2]);
+        assertEquals("-", suggestions[5]);
     }
     
     @Test
@@ -92,15 +92,4 @@ public class CheckerServiceTest {
         assertEquals(0, arrayDeq.size());
     }
     
-    @Test
-    public void veryRareWordSuggestionsWork() {
-        String[] suggestions = checkerService.getSuggestions("veryrareword");
-        boolean suggestionFound = false;
-        for (String word : suggestions) {
-            if (!word.equals("-")) {
-                suggestionFound = true;
-            }
-        }
-        assertTrue(suggestionFound);
-    }
 }
